@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Dashboard - <%= settings.name %>
+    </title>
+    <% if (settings.api.arcio.enabled==true) { %>
+    <script async src="https://arc.io/widget.min.js#<%= settings.api.arcio.widgetid %>"></script>
+    <% } %>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon"
+        href="https://images-ext-1.discordapp.net/external/sMKkyuJo8Wn_AK_Foyl0aGrWwhe9fbqtPgkThvHxdxs/%3Fsize%3D1024/https/cdn.discordapp.com/icons/933803406513012807/bb763a3db98f9f0ae8d6029e8355dd06.png"
+        type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <link rel="stylesheet" href="/assets/thmeneed/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="/assets/thmeneed/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="/assets/thmeneed/css/argon.css?v=1.2.0" type="text/css">
+    <script src="https://kit.fontawesome.com/b97ffc16ff.js" crossorigin="anonymous"></script>
+
+    <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+        data-assets-path="../assets/" data-template="vertical-menu-template-free">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="description" content="" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet" />
+
+        <!-- Icons. Uncomment required icon fonts -->
+        <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../assets/css/demo.css" />
+
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+        <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css" />
+        <link rel="stylesheet" href="assets/vendor/libs/toastr/toastr.css" />
+        <link rel="stylesheet" href="assets/vendor/libs/toastr/toastr.js" />
+
+        <!-- Helpers -->
+        <script src="../assets/vendor/js/helpers.js"></script>
+
+        <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+        <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+        <script src="../assets/js/config.js"></script>
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Menu -->
+
+                <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                    <div class="app-brand demo">
+                        <a href="/dashboard" class="app-brand-link">
+                            <span class="app-brand-logo demo">
+                                <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <path
+                                            d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
+                                            id="path-1"></path>
+                                        <path
+                                            d="M5.47320593,6.00457225 C4.05321814,8.216144 4.36334763,10.0722806 6.40359441,11.5729822 C8.61520715,12.571656 10.0999176,13.2171421 10.8577257,13.5094407 L15.5088241,14.433041 L18.6192054,7.984237 C15.5364148,3.11535317 13.9273018,0.573395879 13.7918663,0.358365126 C13.5790555,0.511491653 10.8061687,2.3935607 5.47320593,6.00457225 Z"
+                                            id="path-3"></path>
+                                        <path
+                                            d="M7.50063644,21.2294429 L12.3234468,23.3159332 C14.1688022,24.7579751 14.397098,26.4880487 13.008334,28.506154 C11.6195701,30.5242593 10.3099883,31.790241 9.07958868,32.3040991 C5.78142938,33.4346997 4.13234973,34 4.13234973,34 C4.13234973,34 2.75489982,33.0538207 2.37032616e-14,31.1614621 C-0.55822714,27.8186216 -0.55822714,26.0572515 -4.05231404e-15,25.8773518 C0.83734071,25.6075023 2.77988457,22.8248993 3.3049379,22.52991 C3.65497346,22.3332504 5.05353963,21.8997614 7.50063644,21.2294429 Z"
+                                            id="path-4"></path>
+                                        <path
+                                            d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
+                                            id="path-5"></path>
+                                    </defs>
+                                    <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
+                                            <g id="Icon" transform="translate(27.000000, 15.000000)">
+                                                <g id="Mask" transform="translate(0.000000, 8.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#path-1"></use>
+                                                    </mask>
+                                                    <use fill="#696cff" xlink:href="#path-1"></use>
+                                                    <g id="Path-3" mask="url(#mask-2)">
+                                                        <use fill="#696cff" xlink:href="#path-3"></use>
+                                                        <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3">
+                                                        </use>
+                                                    </g>
+                                                    <g id="Path-4" mask="url(#mask-2)">
+                                                        <use fill="#696cff" xlink:href="#path-4"></use>
+                                                        <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4">
+                                                        </use>
+                                                    </g>
+                                                </g>
+                                                <g id="Triangle"
+                                                    transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) ">
+                                                    <use fill="#696cff" xlink:href="#path-5"></use>
+                                                    <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5">
+                                                    </use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span class="app-brand-text demo menu-text fw-bolder ms-2">
+                                <%= settings.name %>
+                            </span>
+                        </a>
+
+                        <a href="javascript:void(0);"
+                            class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                        </a>
+                    </div>
+
+                    <div class="menu-inner-shadow"></div>
+
+                    <ul class="menu-inner py-1">
+                        <!-- Dashboard -->
+                        <ul class="menu-inner py-1">
+                            <!-- Dashboard -->
+                            <li class="menu-item active">
+                                <a href="/dashboard" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                                    <div data-i18n="Analytics">Dashboard</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/servers" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-server"></i>
+                                    <div data-i18n="Layouts">Servers</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/create" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-plus-medical"></i>
+                                    <div data-i18n="Layouts">Create a Server</div>
+                                </a>
+                            </li>
+                            <!-- Pages -->
+                            <li class="menu-header small text-uppercase">
+                                <span class="menu-header-text">Pages</span>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/gift" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-gift"></i>
+                                    <div data-i18n="Layouts">Gift</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/redeem" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-book-reader"></i>
+                                    <div data-i18n="Layouts">Redeem</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/j4r" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-diamond"></i>
+                                    <div data-i18n="Layouts">Join for Reward</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/lv" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-link-external"></i>
+                                    <div data-i18n="Layouts">Linkvertise Earning</div>
+                                </a>
+                            </li>
+                            <!-- Pages End -->
+                            <!-- Store -->
+                            <li class="menu-header small text-uppercase">
+                                <span class="menu-header-text">Store</span>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/store" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-store"></i>
+                                    <div data-i18n="Layouts">Store</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/buy" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-cart"></i>
+                                    <div data-i18n="Layouts">Buy Coins</div>
+                                </a>
+                            </li>
+                            <!-- Store End-->
+                            <!--Admin-->
+                            <% if (pterodactyl.root_admin == true) { %>
+                            <li class="menu-header small text-uppercase">
+                                <span class="menu-header-text">Admin</span>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-shield-quarter"></i>
+                                    <div data-i18n="Layouts">Admin</div>
+                                </a> 
+                            </li>
+                            <!--Admin End-->
+                        </ul><% } %>
+                </aside>
+                <div class="layout-page">
+                    <!-- Navbar -->
+
+                    <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                        id="layout-navbar">
+                        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                                <i class="bx bx-menu bx-sm"></i>
+                            </a>
+                        </div>
+
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                            <!-- Search -->
+                            <div class="navbar-nav align-items-center">
+                                <% if (settings.api.client.coins.enabled==true) { %>
+                                <button type="button" class="btn btn-default">
+                                    <span>Your coins</span>
+                                    <span class="badge badge-primary">
+                                        <%= coins %>
+                                    </span>
+                                </button>
+                                <% } %>
+                            </div>
+                            <!-- /Search -->
+
+                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                <!-- Place this tag where you want the button to render. -->
+                                <!-- User -->
+                                <div class="nav-item lh-1 me-3">
+                                    <a href="<%= settings.pterodactyl.domain %>"
+                                        class="btn btn-sm btn-neutral">Panel</a>
+                                    <a href="/servers/new" class="btn btn-sm btn-neutral">New Server</a>
+                                </div>
+                                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                                        data-bs-toggle="dropdown">
+                                        <div class="avatar avatar-online">
+                                            <img alt="Avatar"
+                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0 me-3">
+                                                        <div class="avatar avatar-online">
+                                                            <img
+                                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024 alt" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-semibold d-block">
+                                                            <%= req.session.userinfo.username%>#<%=
+                                                                            req.session.userinfo.discriminator %>
+                                                        </span>
+                                                        <small class="text-muted">ID: <%=
+                                                                        req.session.userinfo.id%></small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="/logout">
+                                                <i class="bx bx-power-off me-2"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- Content wrapper -->
+
+                    <div class="content-wrapper">
+                        <!-- Content -->
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                      
+		<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="mt-2 mb-4">
+                        <% if (req.query.err) { %>
+                            <% if (req.query.err !== "none") { %>
+                                <h5 class="text-white op-7 mb-4">
+                                    <% if (req.query.err == "MISSINGID") { %>
+                                        You have not provided the Discord user ID.
+                                    <% } else if (req.query.err == "INVALIDID" || req.query.err == "MISSINGID") { %>
+                                        You have provided a Discord user ID that does not exist, or has not signed up on the dashboard.
+				    <% } else if (req.query.err == "CREATECOUPONINVALIDCHARACTERS") { %>
+					One of the characters you entered in coupon creation was invalid, please try again.
+				    <% } else if (req.query.err == "REVOKECOUPONCANNOTFINDCODE") { %>
+					One of the characters you entered in coupon revoke was invalid, please try again.
+				    <% } else if (req.query.err == "CREATECOUPONEMPTY") { %>
+					While creating your coupon you did not specify to give any resources or coins.
+				    <% } else if (req.query.err == "CREATECOUPONLESSTHANONE") { %>
+					While creating your coupon you tried to give less then one in RAM, DISK, CPU and/or coins.
+                                    <% } else if (req.query.err == "MISSINGVARIABLES") { %>
+                                        You have not provided either ram, disk, cpu, and/or servers.
+                                    <% } else if (req.query.err == "REMOVEACCOUNTMISSINGID") { %>
+                                        You have not specified an id to remove from the panel
+                                    <% } else if (req.query.err == "MISSINGCOINS") { %>
+                                        You have not provided the coin amount.
+                                    <% } else if (req.query.err == "RAMSIZE" || req.query.err == "DISKSIZE" || req.query.err == "CPUSIZE" || req.query.err == "SERVERSIZE") { %>
+                                        The RAM, disk, CPU and servers number cannot be less than 0 nor above 999999999999999.
+                                    <% } else if (req.query.err == "INVALIDCOINNUMBER") { %>
+                                        The coin amount must be a number.
+                                    <% } else if (req.query.err == "COINSIZE") { %>
+                                        The coin amount canno tbe less than 0 and must be above 999999999999999.
+                                    <% } else if (req.query.err == "NOIP") { %>
+                                        There is no IP saved for that user.
+                                    <% } else if(req.query.err == "NONE" && req.query.ip !== undefined) { %>
+                                        IP: <%= req.query.ip %>
+                                    <% } else { %>
+                                        Stop admin abusing.
+                                    <% } %>
+                                </h5>
+                            <% } %>
+                        <% } %>
+				    <% if (req.query.code) { %>
+					<h5 class="text-white op-7 mb-4">
+					You have created a coupon code with the name of: <%= req.query.code %>
+					</h5>
+				    <% } %>
+
+					</div>
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">NorthDevelopment 
+                                    <center> <a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"><i class="fab fa-github" href="https://github.com/NorthDevelopment/NorthClient"></i>GITHUB</a></div>
+                                </div>
+                                <div class="card-body">
+                                    <center><p id="latestversion"><span style="margin-left: 5%;">Fetching...</span></p></center>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        fetch("https://raw.githubusercontent.com/NorthDevelopment/NorthClient/main/assets/lv.json").then(res => Promise.resolve(res.json()).then(lv => {
+                            let version = "<%= settings.version %>"
+                            if (version == lv.version) {
+                                document.getElementById("latestversion").innerHTML = `<span>You are running NorthClient version <code style="color: #007fcc" >v${version}</code>. NorthClient is up-to-date!</span>`;
+                            } else {
+                                document.getElementById("latestversion").innerHTML = `<span>NorthClient is <b>not up-to-date!</b> The latest version is <code style="color: #007fcc" >v${lv.version}</code> and you are currently running version <code style="color: #007fcc" >v<%= settings.version %></code>.</span>`;
+                            }
+                        }));
+                    </script>
+                        <div class="row" id="proBanner">
+                            <div class="col-12">
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                              <div class="card-body">
+                                <h4 class="card-title">Change someone's package.</h4>
+                                <p>Discord User ID: <input class="form-control" id="id" placeholder="0000000000000000"></p>
+                                <p>Package: <select class="form-control" id="package">
+                                    <option value="">Default Plan (Currently: <%= settings.api.client.packages.default %>)</option>
+                                    <% for (let [name, value] of Object.entries(settings.api.client.packages.list)) { %>
+                                        <option value="<%= name %>"><%= name %> (RAM: <%= value.ram %>MB, Disk: <%= value.disk %>MB, CPU: <%= value.cpu %>%, Servers: <%= value.servers %>)</option>
+                                    <% } %>
+                                </select></p>
+                                <button onclick="submitForm()" class="btn btn-primary">Change</button>
+
+                                <script>
+                                    async function submitForm() {
+                                        let id = encodeURIComponent(document.getElementById("id").value);
+                                        let packagename = encodeURIComponent(document.getElementById("package").value);
+                                        window.location.href = "/setplan?id=" + id + "&package=" + packagename
+                                    }
+                                </script>
+
+                              </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Change someone's extra resources.</h4>
+                                    <form action="/setresources">
+                                        <label for="id">Discord User ID:</label>
+                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
+                                        <label for="ram">RAM:</label>
+                                        <input class="form-control" name="ram" type="number"><br><br>
+                                        <label for="disk">Disk:</label>
+                                        <input class="form-control" name="disk" type="number"><br><br>
+                                        <label for="cpu">CPU:</label>
+                                        <input class="form-control" name="cpu" type="number"><br><br>
+                                        <label for="servers">Servers:</label>
+                                        <input class="form-control" name="servers" type="number"><br><br>
+                                        <button type="submit" class="btn btn-primary">Change</button>
+                                    </form>
+                                </div>
+                              </div>
+                              <div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Set coins.</h4>
+                                    <form action="/setcoins">
+                                        <label for="id">Discord User ID:</label>
+                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
+                                        <label for="coins">Coins:</label>
+                                        <input class="form-control" name="coins" type="number"><br><br>
+                                        <button type="submit" class="btn btn-primary">Set</button>
+                                    </form>
+                                </div>
+                              </div>
+                              <div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Add coins.</h4>
+                                    <form action="/addcoins">
+                                        <label for="id">Discord User ID:</label>
+                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
+                                        <label for="coins">Coins:</label>
+                                        <input class="form-control" name="coins" type="number"><br><br>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </form>
+                                </div>
+                              </div>
+
+                            <% if(settings.api.client.oauth2.ip["duplicate check"] == true) { %>
+                              <div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Get IP.</h4>
+                                    <form action="/getip">
+                                        <label for="id">Discord User ID:</label>
+                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
+                                        <button type="submit" class="btn btn-primary">Get</button>
+                                    </form>
+                                </div>
+                              </div>
+                            <% } %>
+
+							<div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Create/Modify Coupon</h4>
+                                    <form action="/create_coupon">
+                                        <label for="code">Code:</label>
+                                        <input class="form-control" name="code" placeholder="Leave this empty to generate a random code."><br><br>
+                                        <label for="coins">Coins:</label>
+                                        <input class="form-control" name="coins" type="number"><br><br>
+                                        <label for="ram">RAM:</label>
+                                        <input class="form-control" name="ram" type="number"><br><br>
+                                        <label for="disk">Disk:</label>
+                                        <input class="form-control" name="disk" type="number"><br><br>
+                                        <label for="cpu">CPU:</label>
+                                        <input class="form-control" name="cpu" type="number"><br><br>
+                                        <label for="servers">Servers:</label>
+                                        <input class="form-control" name="servers" type="number"><br><br>
+                                        <button type="submit" class="btn btn-primary">Create</button>
+                                    </form>
+                                </div>
+                            </div>
+
+							<div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Revoke Coupon</h4>
+                                    <form action="/revoke_coupon">
+                                        <label for="code">Code:</label>
+                                        <input class="form-control" name="code"><br><br>
+                                        <button type="submit" class="btn btn-primary">Revoke</button>
+                                    </form>
+                                </div>
+                            </div>
+
+							<div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Remove Account</h4>
+									<p>This only removes the account from the database, and does not delete the account.<br>This feature has not been tested with the renewal feature.</p>
+                                    <form action="/remove_account">
+                                        <label for="id">Discord ID:</label>
+                                        <input class="form-control" name="id"><br><br>
+                                        <button type="submit" class="btn btn-primary">Remove</button>
+                                    </form>
+                                </div>
+                            </div>
+
+							<div class="card col-md-12 grid-margin stretch-card">
+                                <div class="card-body">
+                                    <h4 class="card-title">User Information</h4>
+
+									<label for="id">Discord ID:</label>
+									<input class="form-control" name="id" id="userinfoid"><br><br>
+									<button type="submit" class="btn btn-primary" onclick="getUserInfo()">Get</button>
+
+									<script>
+										async function getUserInfo() {
+											let userinfo = await fetch("/userinfo?id=" + document.getElementById("userinfoid").value);
+											alert(await userinfo.text())
+										}
+									</script>
+                                </div>
+                            </div>
+
+							
+					</div>
+				</div>
+			</div>
+          </div>
+		</div>
+	  </div>
+    </body>
+  </html>
+   <%- include('./parts/footer') %>
+		<!-- End Custom template -->
+	</div>
+	<!--   Core JS Files   -->
+	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="/assets/js/core/popper.min.js"></script>
+	<script src="/assets/js/core/bootstrap.min.js"></script>
+
+	<!-- jQuery UI -->
+	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+	<!-- jQuery Scrollbar -->
+	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+
+	<!-- Chart JS -->
+	<script src="/assets/js/plugin/chart.js/chart.min.js"></script>
+
+	<!-- jQuery Sparkline -->
+	<script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+	<!-- Chart Circle -->
+	<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
+
+	<!-- Datatables -->
+	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
+
+	<!-- Bootstrap Notify -->
+	<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+	<!-- jQuery Vector Maps -->
+	<script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+	<script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+	<!-- Sweet Alert -->
+	<script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+	<!-- Atlantis JS -->
+	<script src="/assets/js/atlantis.min.js"></script>
+
+
+	<script>
+		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
+			type: 'line',
+			height: '70',
+			width: '100%',
+			lineWidth: '2',
+			lineColor: 'rgba(255, 255, 255, .5)',
+			fillColor: 'rgba(255, 255, 255, .15)'
+		});
+
+		$('#lineChart2').sparkline([99,125,122,105,110,124,115], {
+			type: 'line',
+			height: '70',
+			width: '100%',
+			lineWidth: '2',
+			lineColor: 'rgba(255, 255, 255, .5)',
+			fillColor: 'rgba(255, 255, 255, .15)'
+		});
+
+		$('#lineChart3').sparkline([105,103,123,100,95,105,115], {
+			type: 'line',
+			height: '70',
+			width: '100%',
+			lineWidth: '2',
+			lineColor: 'rgba(255, 255, 255, .5)',
+			fillColor: 'rgba(255, 255, 255, .15)'
+		});
+	</script>
+<style>
+  .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+</style>
+</body>
+</html>
