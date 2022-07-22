@@ -1,6 +1,6 @@
 name: NorthClient
 defaulttheme: default
-version: 1.0.0
+version: 1.4.0
 website:
   port: 25567
   secret: Example Secret
