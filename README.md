@@ -100,10 +100,11 @@ $ sudo pm2 logs 1	        #view logs for app 1
 $ sudo pm2 stop 0           #stop process with ID 0
 $ sudo pm2 restart all      #restart all apps
   ```
- <br/><br/><br/>
+<br/><br/><br/>
 ## :eyes:  Preview
 <img src="https://media4.giphy.com/media/anwzK42TsSAd4Ad76M/giphy.gif?cid=6c09b952j0mxom8sl83p7vm646a40hcr4cw73vbzueo1n02h&rid=giphy.gif&ct=s" href="https://github.com/SirHaxe" height="125" width="125" alt="SirHaxe PNG not Loaded" border="1px" align="center">
 <br/><br/><br/>
+
 ## :warning:  Warning/Copyright
 We cannot force you to keep the "made with ❤️ by Jonas.#9915" in the footer, but please consider keeping it. It helps getting more visibility to the project and so getting better. We won't do technical support for installations without the notice in the footer. And the version check in the Admin area.
 
