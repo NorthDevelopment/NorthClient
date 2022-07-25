@@ -103,7 +103,7 @@ $ sudo pm2 restart all      #restart all apps
 <br/><br/><br/>
 ## :eyes:  Preview
 ![unknown](https://user-images.githubusercontent.com/71934318/180893151-dd16648d-c2a9-4cdc-a66c-9fb43c19e93b.png)
-![unknown](https://user-images.githubusercontent.com/71934318/180893259-f924d158-2c7f-4c4b-a2be-ab126d765169.png)
+![unknown](https://user-images.githubusercontent.com/71934318/180893825-36222dd0-0f8c-47ed-a36e-19938eb2a6e4.png)
 
 <br/><br/><br/>
 ## :warning:  Warning/Copyright
