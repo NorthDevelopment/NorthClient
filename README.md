@@ -102,9 +102,10 @@ $ sudo pm2 restart all      #restart all apps
   ```
 <br/><br/><br/>
 ## :eyes:  Preview
-<img src="https://media4.giphy.com/media/anwzK42TsSAd4Ad76M/giphy.gif?cid=6c09b952j0mxom8sl83p7vm646a40hcr4cw73vbzueo1n02h&rid=giphy.gif&ct=s" href="https://github.com/SirHaxe" height="125" width="125" alt="SirHaxe PNG not Loaded" border="1px" align="center">
-<br/><br/><br/>
+![unknown](https://user-images.githubusercontent.com/71934318/180893151-dd16648d-c2a9-4cdc-a66c-9fb43c19e93b.png)
+![unknown](https://user-images.githubusercontent.com/71934318/180893259-f924d158-2c7f-4c4b-a2be-ab126d765169.png)
 
+<br/><br/><br/>
 ## :warning:  Warning/Copyright
 We cannot force you to keep the "made with ❤️ by Jonas.#9915" in the footer, but please consider keeping it. It helps getting more visibility to the project and so getting better. We won't do technical support for installations without the notice in the footer. And the version check in the Admin area.
 
