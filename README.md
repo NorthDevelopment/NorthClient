@@ -63,22 +63,22 @@ Drop the Files in ur Server and Edit the settings.yml
 **Step 01:**
 <BR/>This is for (Debian/Ubuntu)
   ```JavaScript
----------- Install Node.js v11.x ---------- 
-$ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+---------- Install Node.js v17.x ---------- 
+$ curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 
----------- Install Node.js v10.x ----------
-$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+---------- Install Node.js v12.x ----------
+$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
   ```
 ___
 This is for (CentOS/RHEL and Fedora)
   ```JavaScript
----------- Install Node.js v11.x ---------- 
-$ curl -sL https://rpm.nodesource.com/setup_11.x | bash -
+---------- Install Node.js v17.x ---------- 
+$ curl -sL https://rpm.nodesource.com/setup_17.x | bash -
 
----------- Install Node.js v10.x ----------
-$ curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+---------- Install Node.js v12.x ----------
+$ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
   ```
 
 **Step 02**
