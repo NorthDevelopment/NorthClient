@@ -104,7 +104,8 @@ $ sudo pm2 restart all      #restart all apps
   ```
 <br/><br/><br/>
 ## :eyes:  Preview
-![unknown](https://user-images.githubusercontent.com/71934318/180893151-dd16648d-c2a9-4cdc-a66c-9fb43c19e93b.png)
+![unknown](https://media.discordapp.net/attachments/984837636457918466/1003336465725526047/unknown.png?width=1329&height=670)
+![unknown](https://media.discordapp.net/attachments/984837636457918466/1003336558977490944/unknown.png?width=1333&height=670)
 ![unknown](https://user-images.githubusercontent.com/71934318/180893825-36222dd0-0f8c-47ed-a36e-19938eb2a6e4.png)
 
 <br/><br/><br/>
