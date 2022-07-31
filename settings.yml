@@ -1,8 +1,8 @@
 name: NorthClient
 defaulttheme: default
-version: 1.4.0
+version: 1.5.0
 website:
-  port: 1500
+  port: 25565
   secret: Example Secret
 
 gift:
@@ -23,7 +23,7 @@ guildblacklist:
 
 pterodactyl:
   domain: https://panel.novohost.de
-  key: ptla_KkECCtsbTueQiDhhep4O1P1SXrCzvBaN1ELlCGWhcG1
+  key: ptla_KkECCtsbTueQiDhhep4O1P1SXrCzvBaN1ELlCGWhscG1 (EXAMPLE API)
 
 AFK Party: 
   enabled: false
@@ -129,9 +129,9 @@ api:
         cost: 0
 
     oauth2:
-      id: "985133688926900325"
-      secret: "7uZOvHWEyDvlOjfV_Vnjnv2ZXvuGofRs"
-      link: "http://202.61.239.90:1500"
+      id: "APP ID"
+      secret: "APP SEC ID"
+      link: "UR DOMAIN/IP"
       callbackpath: "/callback"
       prompt: true
 
