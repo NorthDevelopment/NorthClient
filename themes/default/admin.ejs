@@ -15,8 +15,7 @@
         type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="/assets/thmeneed/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="/assets/thmeneed/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-        type="text/css">
+    <link rel="stylesheet" href="/assets/thmeneed/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/thmeneed/css/argon.css?v=1.2.0" type="text/css">
     <script src="https://kit.fontawesome.com/b97ffc16ff.js" crossorigin="anonymous"></script>
 
@@ -71,11 +70,9 @@
                     <div class="app-brand demo">
                         <a href="/dashboard" class="app-brand-link">
                             <span class="app-brand-logo demo">
-                            <span class="app-brand-logo demo">
                                     <img width="25" viewBox="0 0 25 42" src="/assets/img/favicon/logor.png">
                             </span>
-                            </span>
-                            <span class="app-brand-text demo menu-text fw-bolder ms-2">
+                            <span class="app-brand-text menu-text fw-bolder ms-2 " style="font-size:15pt">
                                 <%= settings.name %>
                             </span>
                         </a>
@@ -92,7 +89,7 @@
                         <!-- Dashboard -->
                         <ul class="menu-inner py-1">
                             <!-- Dashboard -->
-                            <li class="menu-item active">
+                            <li class="menu-item">
                                 <a href="/dashboard" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                                     <div data-i18n="Analytics">Dashboard</div>
@@ -161,11 +158,11 @@
                             <li class="menu-header small text-uppercase">
                                 <span class="menu-header-text">Admin</span>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item active">
                                 <a href="/admin" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-shield-quarter"></i>
                                     <div data-i18n="Layouts">Admin</div>
-                                </a> 
+                                </a>
                             </li>
                             <!--Admin End-->
                         </ul><% } %>
@@ -208,7 +205,7 @@
                                         data-bs-toggle="dropdown">
                                         <div class="avatar avatar-online">
                                             <img alt="Avatar"
-                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024">
+                                                   src="/assets/img/illustrations/pb.png">
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
@@ -248,365 +245,436 @@
                     <div class="content-wrapper">
                         <!-- Content -->
                         <div class="container-xxl flex-grow-1 container-p-y">
-                      
-		<div class="main-panel">
-			<div class="content">
-				<div class="page-inner">
-					<div class="mt-2 mb-4">
-                        <% if (req.query.err) { %>
-                            <% if (req.query.err !== "none") { %>
-                                <h5 class="text-white op-7 mb-4">
-                                    <% if (req.query.err == "MISSINGID") { %>
-                                        You have not provided the Discord user ID.
-                                    <% } else if (req.query.err == "INVALIDID" || req.query.err == "MISSINGID") { %>
-                                        You have provided a Discord user ID that does not exist, or has not signed up on the dashboard.
-				    <% } else if (req.query.err == "CREATECOUPONINVALIDCHARACTERS") { %>
-					One of the characters you entered in coupon creation was invalid, please try again.
-				    <% } else if (req.query.err == "REVOKECOUPONCANNOTFINDCODE") { %>
-					One of the characters you entered in coupon revoke was invalid, please try again.
-				    <% } else if (req.query.err == "CREATECOUPONEMPTY") { %>
-					While creating your coupon you did not specify to give any resources or coins.
-				    <% } else if (req.query.err == "CREATECOUPONLESSTHANONE") { %>
-					While creating your coupon you tried to give less then one in RAM, DISK, CPU and/or coins.
-                                    <% } else if (req.query.err == "MISSINGVARIABLES") { %>
-                                        You have not provided either ram, disk, cpu, and/or servers.
-                                    <% } else if (req.query.err == "REMOVEACCOUNTMISSINGID") { %>
-                                        You have not specified an id to remove from the panel
-                                    <% } else if (req.query.err == "MISSINGCOINS") { %>
-                                        You have not provided the coin amount.
-                                    <% } else if (req.query.err == "RAMSIZE" || req.query.err == "DISKSIZE" || req.query.err == "CPUSIZE" || req.query.err == "SERVERSIZE") { %>
-                                        The RAM, disk, CPU and servers number cannot be less than 0 nor above 999999999999999.
-                                    <% } else if (req.query.err == "INVALIDCOINNUMBER") { %>
-                                        The coin amount must be a number.
-                                    <% } else if (req.query.err == "COINSIZE") { %>
-                                        The coin amount canno tbe less than 0 and must be above 999999999999999.
-                                    <% } else if (req.query.err == "NOIP") { %>
-                                        There is no IP saved for that user.
-                                    <% } else if(req.query.err == "NONE" && req.query.ip !== undefined) { %>
-                                        IP: <%= req.query.ip %>
-                                    <% } else { %>
-                                        Stop admin abusing.
-                                    <% } %>
-                                </h5>
-                            <% } %>
-                        <% } %>
-				    <% if (req.query.code) { %>
-					<h5 class="text-white op-7 mb-4">
-					You have created a coupon code with the name of: <%= req.query.code %>
-					</h5>
-				    <% } %>
 
-					</div>
-                    <div class="row">
-                        <div class="col-md-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">NorthDevelopment 
-                                    <center> <a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"><i class="fab fa-github" href="https://github.com/NorthDevelopment/NorthClient"></i>GITHUB</a></div>
-                                </div>
-                                <div class="card-body">
-                                    <center><p id="latestversion"><span style="margin-left: 5%;">Fetching...</span></p></center>
+                            <div class="main-panel">
+                                <div class="content">
+                                    <div class="page-inner">
+                                        <div class="mt-2 mb-4">
+                                            <% if (req.query.err) { %>
+                                            <% if (req.query.err !== "none") { %>
+                                            <h5 class="text-white op-7 mb-4">
+                                                <% if (req.query.err == "MISSINGID") { %>
+                                                <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>You have not provided the Discord
+                                                            user ID.</strong></span>
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <% } else if (req.query.err == "INVALIDID" || req.query.err == "MISSINGID") { %>
+                                                <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>You have provided a Discord user ID
+                                                            that does not exist, or has not signed up on the
+                                                            dashboard.</strong></span>
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <% } 
+                    else if (req.query.err == "CREATECOUPONINVALIDCHARACTERS") { %>
+                                                One of the characters you entered in coupon creation was invalid, please
+                                                try again.
+                                                <% } else if (req.query.err == "REVOKECOUPONCANNOTFINDCODE") { %>
+                                                One of the characters you entered in coupon revoke was invalid, please
+                                                try again.
+                                                <% } else if (req.query.err == "CREATECOUPONEMPTY") { %>
+                                                While creating your coupon you did not specify to give any resources or
+                                                coins.
+                                                <% } else if (req.query.err == "CREATECOUPONLESSTHANONE") { %>
+                                                While creating your coupon you tried to give less then one in RAM, DISK,
+                                                CPU and/or coins.
+                                                <% } else if (req.query.err == "MISSINGVARIABLES") { %>
+                                                You have not provided either ram, disk, cpu, and/or servers.
+                                                <% } else if (req.query.err == "REMOVEACCOUNTMISSINGID") { %>
+                                                You have not specified an id to remove from the panel
+                                                <% } else if (req.query.err == "MISSINGCOINS") { %>
+                                                You have not provided the coin amount.
+                                                <% } else if (req.query.err == "RAMSIZE" || req.query.err == "DISKSIZE" || req.query.err == "CPUSIZE" || req.query.err == "SERVERSIZE") { %>
+                                                The RAM, disk, CPU and servers number cannot be less than 0 nor above
+                                                999999999999999.
+                                                <% } else if (req.query.err == "INVALIDCOINNUMBER") { %>
+                                                The coin amount must be a number.
+                                                <% } else if (req.query.err == "COINSIZE") { %>
+                                                The coin amount canno tbe less than 0 and must be above 999999999999999.
+                                                <% } else if (req.query.err == "NOIP") { %>
+                                                There is no IP saved for that user.
+                                                <% } else if(req.query.err == "NONE" && req.query.ip !== undefined) { %>
+                                                IP: <%= req.query.ip %>
+                                                <% } else { %>
+                                                Stop admin abusing.
+                                                <% } %>
+                                            </h5>
+                                            <% } %>
+                                            <% } %>
+                                            <% if (req.query.code) { %>
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                                <span class="alert-text"><strong>You have created a coupon code with the
+                                                        name of:</strong> <%= req.query.code %></span>
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <% } %>
+                                            <div class="row">
+                                                <div class="col-md-12 grid-margin stretch-card">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <div class="card-title">NorthDevelopment
+                                                                <center> <a
+                                                                        href="https://github.com/NorthDevelopment/NorthClient"
+                                                                        target="_blank"><i class="fab fa-github"
+                                                                            href="https://github.com/NorthDevelopment/NorthClient"></i>GITHUB</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <center>
+                                                                <p id="latestversion"><span
+                                                                        style="margin-left: 5%;">Fetching...</span></p>
+                                                            </center>
 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                fetch(
+                                                        "https://raw.githubusercontent.com/NorthDevelopment/NorthClient/main/assets/lv.json")
+                                                    .then(res => Promise.resolve(res.json()).then(lv => {
+                                                        let version = "<%= settings.version %>"
+                                                        if (version == lv.version) {
+                                                            document.getElementById("latestversion").innerHTML =
+                                                                `<span>You are running NorthClient version <code style="color: #007fcc" >v${version}</code>. NorthClient is up-to-date!</span>`;
+                                                        } else {
+                                                            document.getElementById("latestversion").innerHTML =
+                                                                `<span>NorthClient is <b>not up-to-date!</b> The latest version is <code style="color: #007fcc" >v${lv.version}</code> and you are currently running version <code style="color: #007fcc" >v<%= settings.version %></code>.</span>`;
+                                                        }
+                                                    }));
+                                            </script>
+                                            <div class="row" id="proBanner">
+                                                <div class="col-12">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 grid-margin stretch-card">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Change someone's package.</h4>
+                                                            <p>Discord User ID: <input class="form-control" id="id"
+                                                                    placeholder="0000000000000000"></p>
+                                                            <p>Package: <select class="form-control" id="package">
+                                                                    <option value="">Default Plan (Currently:
+                                                                        <%= settings.api.client.packages.default %>)
+                                                                    </option>
+                                                                    <% for (let [name, value] of Object.entries(settings.api.client.packages.list)) { %>
+                                                                    <option value="<%= name %>"><%= name %> (RAM:
+                                                                        <%= value.ram %>MB, Disk: <%= value.disk %>MB,
+                                                                        CPU: <%= value.cpu %>%, Servers:
+                                                                        <%= value.servers %>)</option>
+                                                                    <% } %>
+                                                                </select></p>
+                                                            <button onclick="submitForm()"
+                                                                class="btn btn-primary">Change</button>
+
+                                                            <script>
+                                                                async function submitForm() {
+                                                                    let id = encodeURIComponent(document
+                                                                        .getElementById("id").value);
+                                                                    let packagename = encodeURIComponent(document
+                                                                        .getElementById("package").value);
+                                                                    window.location.href = "/setplan?id=" + id +
+                                                                        "&package=" + packagename
+                                                                }
+                                                            </script>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Change someone's extra resources.</h4>
+                                                    <form action="/setresources">
+                                                        <label for="id">Discord User ID:</label>
+                                                        <input class="form-control" name="id"
+                                                            placeholder="0000000000000000"><br><br>
+                                                        <label for="ram">RAM:</label>
+                                                        <input class="form-control" name="ram" type="number"><br><br>
+                                                        <label for="disk">Disk:</label>
+                                                        <input class="form-control" name="disk" type="number"><br><br>
+                                                        <label for="cpu">CPU:</label>
+                                                        <input class="form-control" name="cpu" type="number"><br><br>
+                                                        <label for="servers">Servers:</label>
+                                                        <input class="form-control" name="servers"
+                                                            type="number"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Change</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Set coins.</h4>
+                                                    <form action="/setcoins">
+                                                        <label for="id">Discord User ID:</label>
+                                                        <input class="form-control" name="id"
+                                                            placeholder="0000000000000000"><br><br>
+                                                        <label for="coins">Coins:</label>
+                                                        <input class="form-control" name="coins" type="number"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Set</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Add coins.</h4>
+                                                    <form action="/addcoins">
+                                                        <label for="id">Discord User ID:</label>
+                                                        <input class="form-control" name="id"
+                                                            placeholder="0000000000000000"><br><br>
+                                                        <label for="coins">Coins:</label>
+                                                        <input class="form-control" name="coins" type="number"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <% if(settings.api.client.oauth2.ip["duplicate check"] == true) { %>
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Get IP.</h4>
+                                                    <form action="/getip">
+                                                        <label for="id">Discord User ID:</label>
+                                                        <input class="form-control" name="id"
+                                                            placeholder="0000000000000000"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Get</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <% } %>
+
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Create/Modify Coupon</h4>
+                                                    <form action="/create_coupon">
+                                                        <label for="code">Code:</label>
+                                                        <input class="form-control" name="code"
+                                                            placeholder="Leave this empty to generate a random code."><br><br>
+                                                        <label for="coins">Coins:</label>
+                                                        <input class="form-control" name="coins" type="number"><br><br>
+                                                        <label for="ram">RAM:</label>
+                                                        <input class="form-control" name="ram" type="number"><br><br>
+                                                        <label for="disk">Disk:</label>
+                                                        <input class="form-control" name="disk" type="number"><br><br>
+                                                        <label for="cpu">CPU:</label>
+                                                        <input class="form-control" name="cpu" type="number"><br><br>
+                                                        <label for="servers">Servers:</label>
+                                                        <input class="form-control" name="servers"
+                                                            type="number"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Create</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Revoke Coupon</h4>
+                                                    <form action="/revoke_coupon">
+                                                        <label for="code">Code:</label>
+                                                        <input class="form-control" name="code"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Revoke</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Remove Account</h4>
+                                                    <p>This only removes the account from the database, and does not
+                                                        delete the account.<br>This feature has not been tested with the
+                                                        renewal feature.</p>
+                                                    <form action="/remove_account">
+                                                        <label for="id">Discord ID:</label>
+                                                        <input class="form-control" name="id"><br><br>
+                                                        <button type="submit" class="btn btn-primary">Remove</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="card col-md-12 grid-margin stretch-card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">User Information</h4>
+
+                                                    <label for="id">Discord ID:</label>
+                                                    <input class="form-control" name="id" id="userinfoid"><br><br>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        onclick="getUserInfo()">Get</button>
+
+                                                    <script>
+                                                        async function getUserInfo() {
+                                                            let userinfo = await fetch("/userinfo?id=" + document
+                                                                .getElementById("userinfoid").value);
+                                                            alert(await userinfo.text())
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <script>
-                        fetch("https://raw.githubusercontent.com/NorthDevelopment/NorthClient/main/assets/lv.json").then(res => Promise.resolve(res.json()).then(lv => {
-                            let version = "<%= settings.version %>"
-                            if (version == lv.version) {
-                                document.getElementById("latestversion").innerHTML = `<span>You are running NorthClient version <code style="color: #007fcc" >v${version}</code>. NorthClient is up-to-date!</span>`;
-                            } else {
-                                document.getElementById("latestversion").innerHTML = `<span>NorthClient is <b>not up-to-date!</b> The latest version is <code style="color: #007fcc" >v${lv.version}</code> and you are currently running version <code style="color: #007fcc" >v<%= settings.version %></code>.</span>`;
-                            }
-                        }));
-                    </script>
-                        <div class="row" id="proBanner">
-                            <div class="col-12">
-                          </div>
-                        </div>  
-                        <div class="row">
-                          <div class="col-md-12 grid-margin stretch-card">
-                            <div class="card">
-                              <div class="card-body">
-                                <h4 class="card-title">Change someone's package.</h4>
-                                <p>Discord User ID: <input class="form-control" id="id" placeholder="0000000000000000"></p>
-                                <p>Package: <select class="form-control" id="package">
-                                    <option value="">Default Plan (Currently: <%= settings.api.client.packages.default %>)</option>
-                                    <% for (let [name, value] of Object.entries(settings.api.client.packages.list)) { %>
-                                        <option value="<%= name %>"><%= name %> (RAM: <%= value.ram %>MB, Disk: <%= value.disk %>MB, CPU: <%= value.cpu %>%, Servers: <%= value.servers %>)</option>
-                                    <% } %>
-                                </select></p>
-                                <button onclick="submitForm()" class="btn btn-primary">Change</button>
+                    </body>
 
-                                <script>
-                                    async function submitForm() {
-                                        let id = encodeURIComponent(document.getElementById("id").value);
-                                        let packagename = encodeURIComponent(document.getElementById("package").value);
-                                        window.location.href = "/setplan?id=" + id + "&package=" + packagename
-                                    }
-                                </script>
+    </html>
+    <%- include('./parts/footer') %>
+    <!-- End Custom template -->
+    </div>
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
 
-                              </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Change someone's extra resources.</h4>
-                                    <form action="/setresources">
-                                        <label for="id">Discord User ID:</label>
-                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
-                                        <label for="ram">RAM:</label>
-                                        <input class="form-control" name="ram" type="number"><br><br>
-                                        <label for="disk">Disk:</label>
-                                        <input class="form-control" name="disk" type="number"><br><br>
-                                        <label for="cpu">CPU:</label>
-                                        <input class="form-control" name="cpu" type="number"><br><br>
-                                        <label for="servers">Servers:</label>
-                                        <input class="form-control" name="servers" type="number"><br><br>
-                                        <button type="submit" class="btn btn-primary">Change</button>
-                                    </form>
-                                </div>
-                              </div>
-                              <div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Set coins.</h4>
-                                    <form action="/setcoins">
-                                        <label for="id">Discord User ID:</label>
-                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
-                                        <label for="coins">Coins:</label>
-                                        <input class="form-control" name="coins" type="number"><br><br>
-                                        <button type="submit" class="btn btn-primary">Set</button>
-                                    </form>
-                                </div>
-                              </div>
-                              <div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Add coins.</h4>
-                                    <form action="/addcoins">
-                                        <label for="id">Discord User ID:</label>
-                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
-                                        <label for="coins">Coins:</label>
-                                        <input class="form-control" name="coins" type="number"><br><br>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                    </form>
-                                </div>
-                              </div>
+    <!-- jQuery UI -->
+    <script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-                            <% if(settings.api.client.oauth2.ip["duplicate check"] == true) { %>
-                              <div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Get IP.</h4>
-                                    <form action="/getip">
-                                        <label for="id">Discord User ID:</label>
-                                        <input class="form-control" name="id" placeholder="0000000000000000"><br><br>
-                                        <button type="submit" class="btn btn-primary">Get</button>
-                                    </form>
-                                </div>
-                              </div>
-                            <% } %>
+    <!-- jQuery Scrollbar -->
+    <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-							<div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Create/Modify Coupon</h4>
-                                    <form action="/create_coupon">
-                                        <label for="code">Code:</label>
-                                        <input class="form-control" name="code" placeholder="Leave this empty to generate a random code."><br><br>
-                                        <label for="coins">Coins:</label>
-                                        <input class="form-control" name="coins" type="number"><br><br>
-                                        <label for="ram">RAM:</label>
-                                        <input class="form-control" name="ram" type="number"><br><br>
-                                        <label for="disk">Disk:</label>
-                                        <input class="form-control" name="disk" type="number"><br><br>
-                                        <label for="cpu">CPU:</label>
-                                        <input class="form-control" name="cpu" type="number"><br><br>
-                                        <label for="servers">Servers:</label>
-                                        <input class="form-control" name="servers" type="number"><br><br>
-                                        <button type="submit" class="btn btn-primary">Create</button>
-                                    </form>
-                                </div>
-                            </div>
 
-							<div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Revoke Coupon</h4>
-                                    <form action="/revoke_coupon">
-                                        <label for="code">Code:</label>
-                                        <input class="form-control" name="code"><br><br>
-                                        <button type="submit" class="btn btn-primary">Revoke</button>
-                                    </form>
-                                </div>
-                            </div>
+    <!-- Chart JS -->
+    <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
 
-							<div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Remove Account</h4>
-									<p>This only removes the account from the database, and does not delete the account.<br>This feature has not been tested with the renewal feature.</p>
-                                    <form action="/remove_account">
-                                        <label for="id">Discord ID:</label>
-                                        <input class="form-control" name="id"><br><br>
-                                        <button type="submit" class="btn btn-primary">Remove</button>
-                                    </form>
-                                </div>
-                            </div>
+    <!-- jQuery Sparkline -->
+    <script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
-							<div class="card col-md-12 grid-margin stretch-card">
-                                <div class="card-body">
-                                    <h4 class="card-title">User Information</h4>
+    <!-- Chart Circle -->
+    <script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
 
-									<label for="id">Discord ID:</label>
-									<input class="form-control" name="id" id="userinfoid"><br><br>
-									<button type="submit" class="btn btn-primary" onclick="getUserInfo()">Get</button>
+    <!-- Datatables -->
+    <script src="/assets/js/plugin/datatables/datatables.min.js"></script>
 
-									<script>
-										async function getUserInfo() {
-											let userinfo = await fetch("/userinfo?id=" + document.getElementById("userinfoid").value);
-											alert(await userinfo.text())
-										}
-									</script>
-                                </div>
-                            </div>
+    <!-- Bootstrap Notify -->
+    <script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
-							
-					</div>
-				</div>
-			</div>
-          </div>
-		</div>
-	  </div>
+    <!-- jQuery Vector Maps -->
+    <script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+    <script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Atlantis JS -->
+    <script src="/assets/js/atlantis.min.js"></script>
+
+
+    <script>
+        $('#lineChart').sparkline([102, 109, 120, 99, 110, 105, 115], {
+            type: 'line',
+            height: '70',
+            width: '100%',
+            lineWidth: '2',
+            lineColor: 'rgba(255, 255, 255, .5)',
+            fillColor: 'rgba(255, 255, 255, .15)'
+        });
+
+        $('#lineChart2').sparkline([99, 125, 122, 105, 110, 124, 115], {
+            type: 'line',
+            height: '70',
+            width: '100%',
+            lineWidth: '2',
+            lineColor: 'rgba(255, 255, 255, .5)',
+            fillColor: 'rgba(255, 255, 255, .15)'
+        });
+
+        $('#lineChart3').sparkline([105, 103, 123, 100, 95, 105, 115], {
+            type: 'line',
+            height: '70',
+            width: '100%',
+            lineWidth: '2',
+            lineColor: 'rgba(255, 255, 255, .5)',
+            fillColor: 'rgba(255, 255, 255, .15)'
+        });
+    </script>
+    <style>
+        .glow-on-hover {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+    </style>
     </body>
-  </html>
-   <%- include('./parts/footer') %>
-		<!-- End Custom template -->
-	</div>
-	<!--   Core JS Files   -->
-	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="/assets/js/core/popper.min.js"></script>
-	<script src="/assets/js/core/bootstrap.min.js"></script>
 
-	<!-- jQuery UI -->
-	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-
-	<!-- jQuery Scrollbar -->
-	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-
-	<!-- Chart JS -->
-	<script src="/assets/js/plugin/chart.js/chart.min.js"></script>
-
-	<!-- jQuery Sparkline -->
-	<script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-	<!-- Chart Circle -->
-	<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
-
-	<!-- Datatables -->
-	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-
-	<!-- Bootstrap Notify -->
-	<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-	<!-- jQuery Vector Maps -->
-	<script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-	<script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
-
-	<!-- Sweet Alert -->
-	<script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
-	<!-- Atlantis JS -->
-	<script src="/assets/js/atlantis.min.js"></script>
-
-
-	<script>
-		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-
-		$('#lineChart2').sparkline([99,125,122,105,110,124,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-
-		$('#lineChart3').sparkline([105,103,123,100,95,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-	</script>
-<style>
-  .glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-}
-
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:active {
-    color: #000
-}
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
-</style>
-</body>
 </html>

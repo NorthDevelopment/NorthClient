@@ -1,8 +1,8 @@
 "use strict";
 
-let settings = require('../handlers/readSettings').settings();
-const mailer = require("../handlers/mailer").mailer();
-const makeid = require("../handlers/makeid");
+let settings = require('../../handlers/readSettings').settings();
+const mailer = require("../../handlers/mailer").mailer();
+const makeid = require("../../handlers/makeid");
 
 if (settings.api.client.oauth2.link.slice(-1) == "/")
   settings.api.client.oauth2.link = settings.api.client.oauth2.link.slice(0, -1);
@@ -15,20 +15,13 @@ if (settings.pterodactyl.domain.slice(-1) == "/")
 
 const fetch = require('node-fetch');
 
-const indexjs = require("../index.js");
+const indexjs = require("../../index.js");
 
 module.exports.load = async function(app, ejs, db) {
   app.get("/login", async (req, res) => {
     if (req.query.redirect) req.session.redirect = "/" + req.query.redirect;
     res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${settings.api.client.oauth2.id}&redirect_uri=${encodeURIComponent(settings.api.client.oauth2.link + settings.api.client.oauth2.callbackpath)}&response_type=code&scope=identify%20email${settings.api.client.bot.joinguild.enabled == true ? "%20guilds.join" : ""}${settings.api.client.j4r.enabled == true ? "%20guilds" : ""}${settings.api.client.oauth2.prompt == false ? "&prompt=none" : (req.query.prompt ? (req.query.prompt == "none" ? "&prompt=none" : "") : "")}`);
   });
-
-    app.get("/logout", (req, res) => {
-      let theme = indexjs.get(req);
-      req.session.destroy(() => {
-        return res.redirect(theme.settings.redirect.logout ? theme.settings.redirect.logout : "/");
-      });
-    });
 
     app.get(settings.api.client.oauth2.callbackpath, async (req, res) => {
       let customredirect = req.session.redirect;
@@ -47,7 +40,7 @@ module.exports.load = async function(app, ejs, db) {
         let codeinfo = JSON.parse(await json.text());
         let scopes = codeinfo.scope;
         let missingscopes = [];
-        let newsettings = require('../handlers/readSettings').settings();
+        let newsettings = require('../../handlers/readSettings').settings();
 
         if (scopes.replace(/identify/g, "") == scopes)
           missingscopes.push("identify");
@@ -71,6 +64,7 @@ module.exports.load = async function(app, ejs, db) {
           }
         );
         let userinfo = JSON.parse(await userjson.text());
+        userinfo.id = userinfo.email
 
         let guildsjson = await fetch(
           'https://discord.com/api/users/@me/guilds',
@@ -206,11 +200,22 @@ module.exports.load = async function(app, ejs, db) {
               return res.send("api.client.bot.joinguild.guildid is not an array nor a string.");
             }
           }
-          if (!await db.get("users-" + userinfo.id)) {
+
+          if (!await db.get(`user-${userinfo.id}`)) {
+            if (settings.api.client.allow.newusers == true) {
+              const user = { 
+                username: userinfo.username,
+                id: userinfo.id,
+                password: makeid(8),
+                discriminator: userinfo.discriminator
+              }
+              await db.set(`user-${userinfo.id}`, user)
+            }
+          }    
+          if (!await db.get(`users-${userinfo.id}`)) {
             if (newsettings.api.client.allow.newusers == true) {
               let genpassword = null;
-              if (newsettings.api.client.passwordgenerator.signup == true)
-                genpassword = makeid(newsettings.api.client.passwordgenerator["length"]);
+              if (newsettings.api.client.passwordgenerator.signup == true) genpassword = makeid(newsettings.api.client.passwordgenerator["length"]);
               let accountjson = await fetch(
                 settings.pterodactyl.domain + "/api/application/users",
                 {
@@ -233,7 +238,7 @@ module.exports.load = async function(app, ejs, db) {
                 let userids = await db.get("users") ? await db.get("users") : [];
                 userids.push(accountinfo.attributes.id);
                 await db.set("users", userids);
-                await db.set("users-" + userinfo.id, accountinfo.attributes.id);
+                await db.set(`users-${userinfo.id}`, accountinfo.attributes.id);
                 req.session.newaccount = true;
                 req.session.password = genpassword;
               } else {
@@ -264,23 +269,29 @@ module.exports.load = async function(app, ejs, db) {
                   return res.send("An error has occured when attempting to create your account.");
                 };
               };
+              if (settings.smtp.enabled == true) {
+                mailer.sendMail({
+                  from: settings.smtp.mailfrom,
+                  to: userinfo.email,
+                  subject: `Login details for ${settings.name}`,
+                  html: `Here are your login details for ${settings.name} Panel:\n Username: ${userinfo.id}\n Email: ${userinfo.email}\n Password: ${genpassword}`
+                });
+              }  
             } else {
               return res.send("New users cannot signup currently.");
             }
-            
-            if (settings.smtp.enabled == true) {
-            mailer.sendMail({
-              from: settings.smtp.mailfrom,
-              to: userinfo.email,
-              subject: 'Thanks for signing up',
-              html: `Thanks for signing up to ${settings.name}`,
-            });
+          }
+          await db.set(`username-${userinfo.id}`, userinfo.username);
+
+          let userdb = await db.get("userlist");
+          userdb = userdb ? userdb : [];
+          if(!userdb.includes(`${userinfo.id}`)) {
+              userdb.push(`${userinfo.id}`);
+              await db.set("userlist", userdb);
           }
 
-          };
-
           let cacheaccount = await fetch(
-            settings.pterodactyl.domain + "/api/application/users/" + (await db.get("users-" + userinfo.id)) + "?include=servers",
+            `${settings.pterodactyl.domain}/api/application/users/${await db.get(`users-${userinfo.id}`)}?include=servers`,
             {
               method: "get",
               headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${settings.pterodactyl.key}` }
@@ -290,7 +301,6 @@ module.exports.load = async function(app, ejs, db) {
             return res.send("An error has occured while attempting to get your user information.");
           let cacheaccountinfo = JSON.parse(await cacheaccount.text());
           req.session.pterodactyl = cacheaccountinfo.attributes;
-
           req.session.userinfo = userinfo;
           if (customredirect) return res.redirect(customredirect);
           return res.redirect("/dashboard");
@@ -301,4 +311,3 @@ module.exports.load = async function(app, ejs, db) {
       };
     });
   }
-

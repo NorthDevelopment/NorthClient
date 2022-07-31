@@ -57,7 +57,7 @@ module.exports.load = async function(app, ejs, db) {
           `./themes/${theme.name}/${theme.settings.index}`, 
           await eval(indexjs.renderdataeval),
           null,
-        function (err, str) {
+        function (err, str) {  
           if (err) {
             console.log(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`);
             console.log(err);

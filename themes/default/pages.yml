@@ -5,6 +5,7 @@ redirect:
   callback: "/dashboard"
   failedcallback: "/"
   logout: "/"
+  register: "/register"
   deleteserver: "/servers"
   updateservers: "/dashboard"
   createserver: "/servers"
@@ -46,6 +47,7 @@ redirect:
   removeaccountsuccess: "/admin"
 
 pages:
+  register: register.ejs
   dashboard: dashboard.ejs
   servers: servers.ejs
   servers/new: create.ejs

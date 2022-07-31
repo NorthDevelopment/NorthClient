@@ -1,4 +1,4 @@
-const settings = require('../handlers/readSettings').settings();
+let settings = require('../handlers/readSettings').settings();
 
 if (settings.pterodactyl) if (settings.pterodactyl.domain) {
     if (settings.pterodactyl.domain.slice(-1) == "/") settings.pterodactyl.domain = settings.pterodactyl.domain.slice(0, -1);

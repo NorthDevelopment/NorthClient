@@ -1,9 +1,5 @@
 const indexjs = require("../index.js");
-const arciotext = (require("./arcio.js")).text;
 const adminjs = require("./admin.js");
-const fs = require("fs");
-const ejs = require("ejs");
-const settings = require('../handlers/readSettings').settings();
 
 module.exports.load = async function(app, ejs, db) {
   app.get("/buyram", async (req, res) => {

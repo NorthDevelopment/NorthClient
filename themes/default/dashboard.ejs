@@ -73,7 +73,7 @@
                             <span class="app-brand-logo demo">
                                     <img width="25" viewBox="0 0 25 42" src="/assets/img/favicon/logor.png">
                             </span>
-                            <span class="app-brand-text demo menu-text fw-bolder ms-2">
+                            <span class="app-brand-text menu-text fw-bolder ms-2 " style="font-size:15pt">
                                 <%= settings.name %>
                             </span>
                         </a>
@@ -206,17 +206,17 @@
                                         data-bs-toggle="dropdown">
                                         <div class="avatar avatar-online">
                                             <img alt="Avatar"
-                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024">
+                                                src="/assets/img/illustrations/pb.png">
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
                                             <a class="dropdown-item" href="#">
                                                 <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
+                                                    <div class="flex-shrink-0 me-1">
                                                         <div class="avatar avatar-online">
                                                             <img
-                                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024 alt" />
+                                                            src="/assets/img/illustrations/pb.png">
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -484,7 +484,7 @@
                                         <div class="card-header d-flex align-items-center justify-content-between pb-0">
                                             <div class="card-title mb-0">
                                                 <h2 class="m-0 me-2">Newst Updates</h2>
-                                                <small class="text-muted">v1.0.0</small>
+                                                <small class="text-muted">v<%= settings.version %></small>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -500,10 +500,9 @@
                                                     <div
                                                         class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                                         <div class="me-2">
-                                                            <h6 class="mb-0">New Project</h6>
-                                                            <small class="text-muted">The project has started on
-                                                                20.07.2022 at 21:00.</small>
-                                                            <small class="fw-semibold">sent 20.07.2022</small>
+                                                            <h6 class="mb-0"><%= settings.changelog.first.header %></h6>
+                                                            <small class="text-muted"><%= settings.changelog.first.text %></small><br/>
+                                                            <small class="fw-semibold"><%= settings.changelog.first.sent %></small>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -515,10 +514,9 @@
                                                     <div
                                                         class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                                         <div class="me-2">
-                                                            <h6 class="mb-0">New Design</h6>
-                                                            <small class="text-muted">We went right to work on a
-                                                                new design.</small>
-                                                            <small class="fw-semibold">sent 20.07.2022</small>
+                                                            <h6 class="mb-0"><%= settings.changelog.second.header %></h6>
+                                                            <small class="text-muted"><%= settings.changelog.second.text %></small><br/>
+                                                            <small class="fw-semibold"><%= settings.changelog.second.sent %></small>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -532,20 +530,25 @@
                                                     <div
                                                         class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                                         <div class="me-2">
-                                                            <div class="form-check form-switch">
+                                                            <div class="form-check form-switch mb-2">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     id="flexSwitchCheckCheckedDisabled" checked
                                                                     disabled />
                                                                 <label class="form-check-label"
-                                                                    for="flexSwitchCheckCheckedDisabled">Making
-                                                                    a Community Dashbaord.</label>
+                                                                    for="flexSwitchCheckCheckedDisabled">Working on the
+                                                                    Theme.</label>
+                                                            </div>
+                                                            <div class="form-check form-switch mb-2">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    id="flexSwitchCheckDisabled" checked disabled />
+                                                                <label class="form-check-label"
+                                                                    for="flexSwitchCheckDisabled">Login/Register System</label>
                                                             </div>
                                                             <div class="form-check form-switch mb-2">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     id="flexSwitchCheckDisabled" disabled />
                                                                 <label class="form-check-label"
-                                                                    for="flexSwitchCheckDisabled">Working on the
-                                                                    Theme.</label>
+                                                                    for="flexSwitchCheckDisabled">Errors Fix</label>
                                                             </div>
                                                         </div>
                                                     </div>

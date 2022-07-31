@@ -8,7 +8,7 @@ const fetch = require('node-fetch');
 
 module.exports.load = async function(app, ejs, db) {
   app.get("/panel", async (req, res) => {
-    res.redirect(settings.pterodactyl.domain);
+    return res.redirect(settings.pterodactyl.domain);
   });
 
   app.get("/regen", async (req, res) => {
@@ -22,7 +22,7 @@ module.exports.load = async function(app, ejs, db) {
     req.session.password = newpassword;
 
     await fetch(
-      settings.pterodactyl.domain + "/api/application/users/" + req.session.pterodactyl.id,
+      `${settings.pterodactyl.domain}/api/application/users/${req.session.pterodactyl.id}`,
       {
         method: "patch",
         headers: {
