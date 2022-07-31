@@ -21,6 +21,8 @@ All features of<a href="https://github.com/NorthDevelopment/NorthClient" target=
 - Servers (create, view, edit servers)
 - User System (auth, regen password, etc)
 - Store (buy resources with coins)
+- Login System with Email and Password or Discord
+- Register System with Username, Email and Password. 
 - Dashboard (view resources & servers from one area)
 - Join for Rewards (join discord servers for coins)
 - Admin (set/add/remove coins & resources, create/revoke coupons)
