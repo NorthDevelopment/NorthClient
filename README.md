@@ -114,7 +114,7 @@ We cannot force you to keep the "made with ❤️ by Jonas.#9915" in the footer,
 
 <br/><br/><br/>
 ## :clap:  Supporte
-Check out our [docs](https://docs.Northdevelopment.ga)<br/>
+Check out our [demo](https://demo.northdevelopment.ga)<br/>
 Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <br/><br/><br/>
 ## :heart:  Supporters
