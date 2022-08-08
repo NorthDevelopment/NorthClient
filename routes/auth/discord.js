@@ -225,7 +225,7 @@ module.exports.load = async function(app, ejs, db) {
                     "Authorization": `Bearer ${settings.pterodactyl.key}`
                   },
                   body: JSON.stringify({
-                    username: userinfo.id,
+                    username: userinfo.username,
                     email: userinfo.email,
                     first_name: userinfo.username,
                     last_name: "#" + userinfo.discriminator,
