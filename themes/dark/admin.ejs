@@ -263,8 +263,8 @@
                                                 <div class="alert alert-warning alert-dismissible fade show"
                                                     role="alert">
                                                     <span class="alert-icon"><i class="ni ni-settings"></i></span>
-                                                    <span class="alert-text"><strong>You have not provided the Discord
-                                                            user ID.</strong></span>
+                                                    <span class="alert-text"><strong>You have not provided the 
+                                                            user Email.</strong></span>
                                                     <button type="button" class="close" data-dismiss="alert"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -274,7 +274,7 @@
                                                 <div class="alert alert-warning alert-dismissible fade show"
                                                     role="alert">
                                                     <span class="alert-icon"><i class="ni ni-settings"></i></span>
-                                                    <span class="alert-text"><strong>You have provided a Discord user ID
+                                                    <span class="alert-text"><strong>You have provided a user Email
                                                             that does not exist, or has not signed up on the
                                                             dashboard.</strong></span>
                                                     <button type="button" class="close" data-dismiss="alert"
@@ -373,8 +373,8 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <h4 class="card-title">Change someone's package.</h4>
-                                                            <p>Discord User ID: <input class="form-control" id="id"
-                                                                    placeholder="0000000000000000"></p>
+                                                            <p>User Email: <input class="form-control" id="id"
+                                                                    placeholder="example@NorthDevelopment.ga"></p>
                                                             <p>Package: <select class="form-control" id="package">
                                                                     <option value="">Default Plan (Currently:
                                                                         <%= settings.api.client.packages.default %>)
@@ -408,9 +408,9 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">Change someone's extra resources.</h4>
                                                     <form action="/setresources">
-                                                        <label for="id">Discord User ID:</label>
+                                                        <label for="id">User Email:</label>
                                                         <input class="form-control" name="id"
-                                                            placeholder="0000000000000000"><br><br>
+                                                            placeholder="example@NorthDevelopment.ga"><br><br>
                                                         <label for="ram">RAM:</label>
                                                         <input class="form-control" name="ram" type="number"><br><br>
                                                         <label for="disk">Disk:</label>
@@ -428,9 +428,9 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">Set coins.</h4>
                                                     <form action="/setcoins">
-                                                        <label for="id">Discord User ID:</label>
+                                                        <label for="id">User Email:</label>
                                                         <input class="form-control" name="id"
-                                                            placeholder="0000000000000000"><br><br>
+                                                            placeholder="example@NorthDevelopment.ga"><br><br>
                                                         <label for="coins">Coins:</label>
                                                         <input class="form-control" name="coins" type="number"><br><br>
                                                         <button type="submit" class="btn btn-primary">Set</button>
@@ -441,9 +441,9 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">Add coins.</h4>
                                                     <form action="/addcoins">
-                                                        <label for="id">Discord User ID:</label>
+                                                        <label for="id">User Email:</label>
                                                         <input class="form-control" name="id"
-                                                            placeholder="0000000000000000"><br><br>
+                                                            placeholder="example@NorthDevelopment.ga"><br><br>
                                                         <label for="coins">Coins:</label>
                                                         <input class="form-control" name="coins" type="number"><br><br>
                                                         <button type="submit" class="btn btn-primary">Add</button>
@@ -456,9 +456,9 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">Get IP.</h4>
                                                     <form action="/getip">
-                                                        <label for="id">Discord User ID:</label>
+                                                        <label for="id">User Email:</label>
                                                         <input class="form-control" name="id"
-                                                            placeholder="0000000000000000"><br><br>
+                                                            placeholder="example@NorthDevelopment.ga"><br><br>
                                                         <button type="submit" class="btn btn-primary">Get</button>
                                                     </form>
                                                 </div>
@@ -506,7 +506,7 @@
                                                         delete the account.<br>This feature has not been tested with the
                                                         renewal feature.</p>
                                                     <form action="/remove_account">
-                                                        <label for="id">Discord ID:</label>
+                                                        <label for="id">User Email:</label>
                                                         <input class="form-control" name="id"><br><br>
                                                         <button type="submit" class="btn btn-primary">Remove</button>
                                                     </form>
@@ -517,7 +517,7 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">User Information</h4>
 
-                                                    <label for="id">Discord ID:</label>
+                                                    <label for="id">User Email:</label>
                                                     <input class="form-control" name="id" id="userinfoid"><br><br>
                                                     <button type="submit" class="btn btn-primary"
                                                         onclick="getUserInfo()">Get</button>
