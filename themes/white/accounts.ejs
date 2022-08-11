@@ -1,0 +1,95 @@
+<% if (settings.stripe.enabled == true) { %>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Buy - <%= settings.name %></title>
+        <% if (settings.api.arcio.enabled == true) { %>
+        <script async src="https://arc.io/widget.min.js#<%= settings.api.arcio.widgetid %>"></script>
+        <% } %>
+        
+        <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+        <link rel="icon" href="https://images-ext-1.discordapp.net/external/sMKkyuJo8Wn_AK_Foyl0aGrWwhe9fbqtPgkThvHxdxs/%3Fsize%3D1024/https/cdn.discordapp.com/icons/933803406513012807/bb763a3db98f9f0ae8d6029e8355dd06.png" type="image/png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <link rel="stylesheet" href="/assets/Argon-Dark/vendor/nucleo/css/nucleo.css" type="text/css">
+        <link rel="stylesheet" href="/assets/Argon-Dark/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+        <link rel="stylesheet" href="/assets/Argon-Dark/css/argon.css?v=1.2.0" type="text/css">
+        <script src="https://kit.fontawesome.com/b97ffc16ff.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+       <%- include('./parts/mainnav') %>
+       <%- include('./parts/header') %>
+    <%- include('./parts/ads') %>
+          <%- include('./parts/widgets') %>
+          <div class="card mb-3">
+            <div class="card-body">
+                <div class="row flex-between-center">
+                    <div class="col-md">
+                        <h5 class="mb-2 mb-md-0">User Profile</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header position-relative min-vh-25 mb-7">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="card col-md-12 grid-margin stretch-card">
+                    <div class="card-body">
+                        <h4 class="card-title">Modify Account</h4>
+                        <form action="/accounts/update">
+                            <label for="username">Username:</label>
+                            <input class="form-control" name="username" placeholder="username"><br><br>
+                            <label for="password">Password:</label>
+                            <input class="form-control" name="password" placeholder="password"><br><br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                  <div class="border-dashed-bottom my-4 d-lg-none"></div>
+                </div>
+                <div class="col ps-2 ps-lg-3"><a class="d-flex align-items-center mb-2" href="/accounts"><span class="fas fa-user-circle fs-3 me-2 text-700" data-fa-transform="grow-2"></span>
+                    <div class="flex-1">
+                        <h4 class="mb-0"> Panel Info</h4>
+                    </div>
+                  </a>
+                  <label for="recipient-name" class="col-form-label">Username:</label>
+                              <p class="text-muted mb-0"><%= req.session.pterodactyl.username %></p>
+                  <label for="message-text" class="col-form-label">Email:</label>
+                  <p class="text-muted mb-0"><%= req.session.pterodactyl.email %></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+              
+    <%- include('./parts/footer') %>
+    </div>
+    </div>
+    <script src="/assets/Argon-Dark/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/Argon-Dark/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/Argon-Dark/vendor/js-cookie/js.cookie.js"></script>
+    <script src="/assets/Argon-Dark/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="/assets/Argon-Dark/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="/assets/Argon-Dark/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/assets/Argon-Dark/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="/assets/Argon-Dark/js/argon.js?v=1.2.0"></script>
+</body>
+</html>  
+</div>
+</div>
+        <!-- Plugin js for this page -->
+        <script src="/assets/vendors/select2/select2.min.js"></script>
+        <script src="/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- endinject -->
+    
+        <!-- Custom js for this page -->
+        <script src="/assets/js/file-upload.js"></script>
+        <script src="/assets/js/typeahead.js"></script>
+        <script src="/assets/js/select2.js"></script>
+        <!-- End custom js for this page -->
+      </body>
+    </html>
+    <% } %>

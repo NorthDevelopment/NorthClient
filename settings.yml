@@ -1,6 +1,6 @@
 name: NorthClient
-defaulttheme: default
-version: 1.5.0
+defaulttheme: white
+version: 1.6.0
 website:
   port: 25565
   secret: Example Secret
@@ -48,7 +48,7 @@ linkvertise:
 
 status:
   enabled: true
-  script: https://example.com
+  script: https://www.issquareup.com/
 
 stripe:
   enabled: true  

