@@ -37,6 +37,7 @@ All features of<a href="https://github.com/NorthDevelopment/NorthClient" target=
 - Mail Server (SMTP support)
 - Linkvertise Earning
 - Role Packages (get packages via roles)
+- Dark-mode/White-mode
 <br/><br/><br/>
 
 ## :zap:  Fast implementation  
