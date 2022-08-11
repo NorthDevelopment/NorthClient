@@ -131,6 +131,7 @@ Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <kbd><img src="https://avatars.githubusercontent.com/u/91793263?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/89733485?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/81978700?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/71870130?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
 <br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
