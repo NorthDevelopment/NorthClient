@@ -4,7 +4,6 @@ let settings = require('../../handlers/readSettings').settings();
 const mailer = require("../../handlers/mailer").mailer();
 const makeid = require("../../handlers/makeid");
 
-
 if (settings.api.client.oauth2.link.slice(-1) == "/")
   settings.api.client.oauth2.link = settings.api.client.oauth2.link.slice(0, -1);
 
