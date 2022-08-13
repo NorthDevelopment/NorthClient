@@ -36,7 +36,7 @@ module.exports.load = async function(app, ejs, db) {
     if (newsettings.api.client.allow.server.create == true) {
       let redirectlink = theme.settings.redirect.failedcreateserver || "/"; // fail redirect link
       
-      if (req.query.name && req.query.ram && req.query.disk && req.query.cpu && req.query.databases && req.query.ports && req.query.backups && req.query.egg && req.query.location) {
+      if (req.query.name && req.query.ram && req.query.disk && req.query.cpu && req.query.databases && req.query.allocations && req.query.backups && req.query.egg && req.query.location) {
         try {
           decodeURIComponent(req.query.name)
         } catch(err) {
@@ -54,7 +54,7 @@ module.exports.load = async function(app, ejs, db) {
             cpu: 0,
             servers: 0,
             databases: 0,
-            ports: 0,
+            allocations: 0,
             backups: 0
           };
           let j4r =
@@ -66,7 +66,7 @@ module.exports.load = async function(app, ejs, db) {
             cpu: 0,
             servers: 0,
             databases: 0,
-            ports: 0,
+            allocations: 0,
             backups: 0
             };
 
@@ -74,7 +74,7 @@ module.exports.load = async function(app, ejs, db) {
         let disk2 = 0;
         let cpu2 = 0;
         let databases2 = 0;
-        let ports2 = 0;
+        let allocations2 = 0;
         let backups2 = 0;
         let servers2 = req.session.pterodactyl.relationships.servers.data.length;
         for (let i = 0, len = req.session.pterodactyl.relationships.servers.data.length; i < len; i++) {
@@ -82,7 +82,7 @@ module.exports.load = async function(app, ejs, db) {
           disk2 = disk2 + req.session.pterodactyl.relationships.servers.data[i].attributes.limits.disk;
           cpu2 = cpu2 + req.session.pterodactyl.relationships.servers.data[i].attributes.limits.cpu;
           databases2 = databases2 + req.session.pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases;
-          ports2 = ports2 + req.session.pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations;
+          allocations2 = allocations2 + req.session.pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations;
           backups2 = backups2 + req.session.pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups;
         };
 
@@ -108,20 +108,23 @@ module.exports.load = async function(app, ejs, db) {
         let disk = parseFloat(req.query.disk);
         let cpu = parseFloat(req.query.cpu);
         let databases = parseFloat(req.query.databases);
-        let ports = parseFloat(req.query.ports)
+        let allocations = parseFloat(req.query.allocations)
         let backups = parseFloat(req.query.backups)
-        if (!isNaN(ram) && !isNaN(disk) && !isNaN(cpu) && !isNaN(databases) && !isNaN(ports) && !isNaN(backups)) {
-          if (ram2 + ram > package.ram + extra.ram + j4r.ram) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDRAM&num=${package.ram + extra.ram + j4r.ram - ram2}`);
-        if (disk2 + disk > package.disk + extra.disk + j4r.disk) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDDISK&num=${package.disk + extra.disk + j4r.disk - disk2}`);
-        if (cpu2 + cpu > package.cpu + extra.cpu + j4r.cpu) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDCPU&num=${package.cpu + extra.cpu + j4r.cpu - cpu2}`);
-          if (egginfo.minimum.ram) if (ram < egginfo.minimum.ram) return res.redirect(`${redirectlink}?err=TOOLITTLERAM&num=${egginfo.minimum.ram}`);
-          if (egginfo.minimum.disk) if (disk < egginfo.minimum.disk) return res.redirect(`${redirectlink}?err=TOOLITTLEDISK&num=${egginfo.minimum.disk}`);
-          if (egginfo.minimum.cpu) if (cpu < egginfo.minimum.cpu) return res.redirect(`${redirectlink}?err=TOOLITTLECPU&num=${egginfo.minimum.cpu}`);
-          if (egginfo.maximum) {
-            if (egginfo.maximum.ram) if (ram > egginfo.maximum.ram) return res.redirect(`${redirectlink}?err=TOOMUCHRAM&num=${egginfo.maximum.ram}`);
-            if (egginfo.maximum.disk) if (disk > egginfo.maximum.disk) return res.redirect(`${redirectlink}?err=TOOMUCHDISK&num=${egginfo.maximum.disk}`);
-            if (egginfo.maximum.cpu) if (cpu > egginfo.maximum.cpu) return res.redirect(`${redirectlink}?err=TOOMUCHCPU&num=${egginfo.maximum.cpu}`);
-          }
+        if (!isNaN(ram) && !isNaN(disk) && !isNaN(cpu) && !isNaN(databases) && !isNaN(allocations) && !isNaN(backups)) {
+            if (ram2 + ram > package.ram + extra.ram + j4r.ram) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDRAM&num=${package.ram + extra.ram + j4r.ram - ram2}`);
+            if (disk2 + disk > package.disk + extra.disk + j4r.disk) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDDISK&num=${package.disk + extra.disk + j4r.disk - disk2}`);
+            if (cpu2 + cpu > package.cpu + extra.cpu + j4r.cpu) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDCPU&num=${package.cpu + extra.cpu + j4r.cpu - cpu2}`);
+            if (databases2 + databases > package.databases + extra.databases + j4r.databases) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDDATABASES&num=${package.databases + extra.databases + j4r.databases - databases2}`);
+            if (allocations2 + allocations > package.allocations + extra.allocations + j4r.allocations) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDALLOCATIONS&num=${package.allocations + extra.allocations + j4r.allocations - allocations2}`);
+            if (backups2 + backups > package.backups + extra.backups + j4r.backups) return res.redirect(`${redirectlink}?id=${req.query.id}&err=EXCEEDBACKUPS&num=${package.backups + extra.backups + j4r.backups - backups2}`);
+            if (egginfo.minimum.ram) if (ram < egginfo.minimum.ram) return res.redirect(`${redirectlink}?err=TOOLITTLERAM&num=${egginfo.minimum.ram}`);
+            if (egginfo.minimum.disk) if (disk < egginfo.minimum.disk) return res.redirect(`${redirectlink}?err=TOOLITTLEDISK&num=${egginfo.minimum.disk}`);
+            if (egginfo.minimum.cpu) if (cpu < egginfo.minimum.cpu) return res.redirect(`${redirectlink}?err=TOOLITTLECPU&num=${egginfo.minimum.cpu}`);
+            if (egginfo.maximum) {
+                if (egginfo.maximum.ram) if (ram > egginfo.maximum.ram) return res.redirect(`${redirectlink}?err=TOOMUCHRAM&num=${egginfo.maximum.ram}`);
+                if (egginfo.maximum.disk) if (disk > egginfo.maximum.disk) return res.redirect(`${redirectlink}?err=TOOMUCHDISK&num=${egginfo.maximum.disk}`);
+                if (egginfo.maximum.cpu) if (cpu > egginfo.maximum.cpu) return res.redirect(`${redirectlink}?err=TOOMUCHCPU&num=${egginfo.maximum.cpu}`);
+            }
   
           let specs = egginfo.info;
           specs["user"] = (await db.get("users-" + req.session.userinfo.id));
@@ -135,7 +138,7 @@ module.exports.load = async function(app, ejs, db) {
           specs.limits.disk = disk;
           specs.limits.cpu = cpu;
           specs.feature_limits.databases = databases;
-          specs.feature_limits.allocations = ports;
+          specs.feature_limits.allocations = allocations;
           specs.feature_limits.backups = backups;
           if (!specs["deploy"]) specs.deploy = {
             locations: [],
@@ -168,7 +171,7 @@ module.exports.load = async function(app, ejs, db) {
                 embeds: [
                     {
                         title: "Server Created",
-                        description: `**__User:__** ${req.session.userinfo.username}#${req.session.userinfo.discriminator} (${req.session.userinfo.id})\n\n**__Configuration:__**\n**Name:** ${name}\n**Ram:** ${ram}MB\n**Disk:** ${disk}MB\n**CPU:** ${cpu}%\n**DATABASES:** ${databases}%\n**PORTS:** ${ports}%\n**BACKUPS:** ${backups}%\n**Egg:** ${egg}\n**Location:** ${location}`,
+                        description: `**__User:__** ${req.session.userinfo.username}#${req.session.userinfo.discriminator} (${req.session.userinfo.id})\n\n**__Configuration:__**\n**Name:** ${name}\n**Ram:** ${ram}MB\n**Disk:** ${disk}MB\n**CPU:** ${cpu}%\n**DATABASES:** ${databases}%\n**PORTS:** ${allocations}%\n**BACKUPS:** ${backups}%\n**Egg:** ${egg}\n**Location:** ${location}`,
                         color: hexToDecimal("#FE0023")
                     }
                 ]
