@@ -44,8 +44,8 @@ module.exports.load = async function(app, ejs, db) {
               body: JSON.stringify({
                 username: req.query.username,
                 email: req.query.email,
-                first_name: req.query.username,
-                last_name: "(credentials)",
+                first_name: req.query.first_name,
+                last_name: req.query.last_name,
                 password: req.query.password
               })
             }
