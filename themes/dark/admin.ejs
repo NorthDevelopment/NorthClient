@@ -284,38 +284,141 @@
                                                 </div>
                                                 <% } 
                     else if (req.query.err == "CREATECOUPONINVALIDCHARACTERS") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 One of the characters you entered in coupon creation was invalid, please
                                                 try again.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "REVOKECOUPONCANNOTFINDCODE") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 One of the characters you entered in coupon revoke was invalid, please
                                                 try again.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "CREATECOUPONEMPTY") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 While creating your coupon you did not specify to give any resources or
                                                 coins.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "CREATECOUPONLESSTHANONE") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 While creating your coupon you tried to give less then one in RAM, DISK,
                                                 CPU and/or coins.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "MISSINGVARIABLES") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 You have not provided either ram, disk, cpu, and/or servers.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "REMOVEACCOUNTMISSINGID") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 You have not specified an id to remove from the panel
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "MISSINGCOINS") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 You have not provided the coin amount.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "RAMSIZE" || req.query.err == "DISKSIZE" || req.query.err == "CPUSIZE" || req.query.err == "SERVERSIZE") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 The RAM, disk, CPU and servers number cannot be less than 0 nor above
                                                 999999999999999.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "INVALIDCOINNUMBER") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 The coin amount must be a number.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else if (req.query.err == "COINSIZE") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 The coin amount canno tbe less than 0 and must be above 999999999999999.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+
                                                 <% } else if (req.query.err == "NOIP") { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 There is no IP saved for that user.
                                                 <% } else if(req.query.err == "NONE" && req.query.ip !== undefined) { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 IP: <%= req.query.ip %>
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } else { %>
+                                                    <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-settings"></i></span>
+                                                    <span class="alert-text"><strong>
                                                 Stop admin abusing.
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <% } %>
                                             </h5>
+                                        </div>
+                                        </div>
                                             <% } %>
                                             <% } %>
                                             <% if (req.query.code) { %>
@@ -546,42 +649,22 @@
     <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
-    <script src="/assets/js/core/jquery.3.2.1.min.js"></script>
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
-
-    <!-- jQuery UI -->
-    <script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-
-    <!-- jQuery Scrollbar -->
-    <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-
-    <!-- Chart JS -->
-    <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Chart Circle -->
-    <script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
-
-    <!-- Datatables -->
-    <script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-
-    <!-- Bootstrap Notify -->
-    <script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-    <!-- jQuery Vector Maps -->
-    <script src="/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-    <script src="/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
-
-    <!-- Sweet Alert -->
-    <script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
-    <!-- Atlantis JS -->
-    <script src="/assets/js/atlantis.min.js"></script>
+    <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/thmeneed/vendor/js-cookie/js.cookie.js"></script>
+    <script src="/assets/thmeneed/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/pages-account-settings-account.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
     <script>
