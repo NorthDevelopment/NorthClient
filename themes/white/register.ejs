@@ -76,6 +76,14 @@
               <p class="mb-4">Make your Server management easy and fun!</p></center>
               <form id="formAuthentication" class="mb-3" method="POST">
                 <div class="mb-3">
+                  <label for="first_name" class="form-label">Firstname</label>
+                  <input class="form-control" name="first_name" type="email" id="first_name" required="required" placeholder="Enter your Firstname"/>
+                </div>
+                <div class="mb-3">
+                  <label for="last_name" class="form-label">Lastname</label>
+                  <input class="form-control" name="last_name" type="email" id="last_name" required="required" placeholder="Enter your Lastname"/>
+                </div>
+                <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input class="form-control" name="username" type="email" id="username" required="required" placeholder="Enter your username"/>
                 </div>
@@ -103,10 +111,12 @@
                 <button class="btn btn-primary d-grid w-100" onclick="submitForm()">Sign up</button>
                 <script>
                                 async function submitForm() {
+                                    let first_name = encodeURIComponent(document.getElementById("first_name").value);
+                                    let last_name = encodeURIComponent(document.getElementById("last_name").value);
                                     let username = encodeURIComponent(document.getElementById("username").value);
                                     let email = encodeURIComponent(document.getElementById("email").value);
                                     let password = encodeURIComponent(document.getElementById("password").value);
-                                    document.location.href = `/auth/register?username=${username}&email=${email}&password=${password}`
+                                    document.location.href = `/auth/register?first_name=${first_name}&last_name=${last_name}&username=${username}&email=${email}&password=${password}`
                                 };
                             </script>
               </form>
