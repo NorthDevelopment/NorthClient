@@ -62,10 +62,8 @@
                         <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
                         <!-- Core CSS -->
-                        <link rel="stylesheet" href="../assets/vendor/css/core.css"
-                            class="template-customizer-core-css" />
-                        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css"
-                            class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
                         <link rel="stylesheet" href="../assets/css/main.css" />
 
                         <!-- Vendors CSS -->
@@ -197,9 +195,9 @@
                                             <!-- Search -->
                                             <div class="navbar-nav align-items-center">
                                                 <% if (settings.api.client.coins.enabled==true) { %>
-                                                    <button type="button" class="btn bg-label-secondary">
+                                                    <button type="button" class="btn bg-label-dark">
                                                         <span>Your coins:</span>
-                                                        <span class="badge bg-label-dark">
+                                                        <span class="badge bg-label-secondary">
                                                             <%= coins %>
                                                         </span>
                                                     <% } %>
@@ -229,7 +227,7 @@
                                                                     <div class="flex-shrink-0 me-3">
                                                                         <div class="avatar avatar-online">
                                                                             <img
-                                                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024 alt" />
+                                                                            alt="Avatar" src="/assets/img/illustrations/pb.png">
                                                                         </div>
                                                                     </div>
                                                                     <div class="flex-grow-1">
@@ -244,6 +242,26 @@
                                                                 </div>
                                                             </a>
                                                         </li>
+                                                        <li>
+                                                            <div class="dropdown-divider"></div>
+                                                          </li>
+                                                        <li>
+                                                            <a class="dropdown-item" href="/profile">
+                                                              <i class="bx bx-user me-2"></i>
+                                                              <span class="align-middle">My Profile</span>
+                                                            </a>
+                                                          </li>
+                                                          <% if (pterodactyl.root_admin==true) { %>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/admin">
+                                                                  <i class="bx bx-shield-quarter"></i>
+                                                                  <span class="align-middle">Admin</span>
+                                                                </a>
+                                                              </li>
+                                                            <% } %>
+                                                            <li>
+                                                                <div class="dropdown-divider"></div>
+                                                              </li>
                                                         <li>
                                                             <a class="dropdown-item" href="/logout">
                                                                 <i class="bx bx-power-off me-2"></i>
@@ -276,16 +294,18 @@
                                                     ? pterodactyl.relationships.servers.data[i].attributes.limits.cpu :
                                                     0); } %>
                                                     <!-- Total Revenue -->
-                                                    <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+                                                    <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
                                                         <div class="card">
                                                             <div class="row row-bordered g-0">
-                                                                <table class="table align-items-center table-flush">
-                                                                    <thead class="table">
+                                                                <table class="table align-items-left table-flush">
                                                                         <tr>
                                                                             <th scope="col">Name</th>
                                                                             <th scope="col">Memory</th>
                                                                             <th scope="col">Disk</th>
                                                                             <th scope="col">CPU</th>
+                                                                            <th scope="col">Databases</th>
+                                                                            <th scope="col">Allocations</th>
+                                                                            <th scope="col">Backups</th>
                                                                             <th scope="col">Edit</th>
                                                                             <th scope="col">Delete</th>
                                                                             <th scope="col">Renew</th>
@@ -294,7 +314,6 @@
                                                                                 { %>
                                                                                 <% } %>
                                                                         </tr>
-                                                                    </thead>
                                                                     <% for (let i = 0, len = pterodactyl.relationships.servers.data.length; i < len; i++) { %>
                                                                     <tbody>
                                                                         <tr>
@@ -310,7 +329,10 @@
                                                                             <td>
                                                                                 <%= pterodactyl.relationships.servers.data[i].attributes.limits.cpu %>%
                                                                             </td>
-                                                                            <td>
+                                                                            <td><%= pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases %></td>
+                                                                            <td><%= pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations %></td>
+                                                                            <td><%= pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups %></td>
+                                                                                                                                                        <td>
                                                                                 <a href="/servers/edit?id=<%= pterodactyl.relationships.servers.data[i].attributes.id %>">
                                                                                     <button class="btn btn-icon btn-primary" type="button">
                                                                                         <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
@@ -367,7 +389,7 @@
                                                         target="_blank" class="footer-link fw-bolder">Jonas.#9915</a>
                                                 </div>
                                                 <div>
-                                                    <a href="https://github.com/NorthDevelopment/NorthClient/blob/main/LICENSE" class="footer-link me-4" target="_blank">License</a>
+                                                    <a href="/404" class="footer-link me-4" target="_blank">License</a>
                                                     <a href="<%= settings.discordserver.invitelink %>" target="_blank"
                                                         class="footer-link me-4">Support</a>
                                                     <a href="/logout" class="btn btn-sm btn-outline-danger"><i
@@ -403,18 +425,22 @@
                                         </div>
                                     </div>
                                     <%- include('./parts/footer') %>
-                                        <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
-                                        <script
-                                            src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                                        <script src="/assets/thmeneed/vendor/js-cookie/js.cookie.js"></script>
-                                        <script
-                                            src="/assets/thmeneed/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-                                        <script
-                                            src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-                                        <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
-                                        <script
-                                            src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
-                                        <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+                                    <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
+                                    <script src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                                    <script src="/assets/thmeneed/vendor/js-cookie/js.cookie.js"></script>
+                                    <script src="/assets/thmeneed/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+                                    <script src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+                                    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
+                                    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
+                                    <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+                                    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+                                    <script src="../assets/vendor/libs/popper/popper.js"></script>
+                                    <script src="../assets/vendor/js/bootstrap.js"></script>
+                                    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                                    <script src="../assets/vendor/js/menu.js"></script>
+                                    <script src="../assets/js/main.js"></script>
+                                    <script src="../assets/js/pages-account-settings-account.js"></script>
+                                    <script async defer src="https://buttons.github.io/buttons.js"></script>
                     </body>
 
                     </html>

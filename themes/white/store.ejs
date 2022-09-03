@@ -116,12 +116,12 @@
                                 </a>
                             </li>
                             <% if (settings.status.enabled==true) { %>
-                                <li class="menu-item">
-                                    <a href="/status" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-stats"></i>
-                                        <div data-i18n="Layouts">Status</div>
-                                    </a>
-                                </li>                    <% } %>
+                            <li class="menu-item">
+                                <a href="/status" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-stats"></i>
+                                    <div data-i18n="Layouts">Status</div>
+                                </a>
+                            </li>                    <% } %>
                             <li class="menu-item">
                               <a href="/redeem" class="menu-link">
                                 <i class="menu-icon tf-icons bx bx-book-reader"></i>
@@ -175,9 +175,9 @@
                             <!-- Search -->
                             <div class="navbar-nav align-items-center">
                                 <% if (settings.api.client.coins.enabled==true) { %>
-                                    <button type="button" class="btn bg-label-secondary">
+                                    <button type="button" class="btn bg-label-dark">
                                         <span>Your coins:</span>
-                                        <span class="badge bg-label-dark">
+                                        <span class="badge bg-label-secondary">
                                             <%= coins %>
                                         </span>
                                     <% } %>
@@ -200,34 +200,52 @@
                                                    src="/assets/img/illustrations/pb.png">
                                         </div>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar avatar-online">
-                                                            <img
-                                                                src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024 alt" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <span class="fw-semibold d-block">
-                                                            <%= req.session.userinfo.username%>#<%=
-                                                                            req.session.userinfo.discriminator %>
-                                                        </span>
-                                                        <small class="text-muted">ID: <%=
-                                                                        req.session.userinfo.id%></small>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 me-1">
+                                                    <div class="avatar avatar-online">
+                                                        <img src="/assets/img/illustrations/pb.png">
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </li>
+                                                <div class="flex-grow-1">
+                                                    <span class="fw-semibold d-block">
+                                                        <%= req.session.userinfo.username%>#<%=
+                                                                req.session.userinfo.discriminator %>
+                                                    </span>
+                                                    <small class="text-muted">ID: <%= req.session.userinfo.id%></small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                      </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/profile">
+                                          <i class="bx bx-user me-2"></i>
+                                          <span class="align-middle">My Profile</span>
+                                        </a>
+                                      </li>
+                                      <% if (pterodactyl.root_admin==true) { %>
                                         <li>
-                                            <a class="dropdown-item" href="/logout">
-                                                <i class="bx bx-power-off me-2"></i>
-                                                <span class="align-middle">Log Out</span>
+                                            <a class="dropdown-item" href="/admin">
+                                              <i class="bx bx-shield-quarter"></i>
+                                              <span class="align-middle">Admin</span>
                                             </a>
-                                        </li>
-                                    </ul>
+                                          </li>
+                                        <% } %>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                          </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/logout">
+                                            <i class="bx bx-power-off me-2"></i>
+                                            <span class="align-middle">Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
                                 </li>
                             </ul>
                         </div>
@@ -492,7 +510,7 @@
                                 class="bx bx-log-out-circle"></i> Logout</a>
                     </div>
                 </div>
-            </footer>        </div>
+            </footer>        </div>    </div>        </div>
     </div>
     <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -501,7 +519,15 @@
     <script src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
-    <script src="/assets/Argon-Dark/js/argon.js?v=1.2.0"></script>
+    <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/pages-account-settings-account.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html

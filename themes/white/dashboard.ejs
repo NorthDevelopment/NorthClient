@@ -7,7 +7,6 @@
     <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
         data-assets-path="../assets/" data-template="vertical-menu-template-free">
     <link rel="stylesheet" href="/assets/css/all.min.css" type="text/css">
-
     <head>
         <meta charset="utf-8" />
         <meta name="viewport"
@@ -59,7 +58,6 @@
                     </a>
                 </div>
                 <div class="menu-inner-shadow"></div>
-                <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <ul class="menu-inner py-1">
                         <!-- Dashboard -->
@@ -148,7 +146,7 @@
                             <!--Admin End-->
                     </ul>
                     <% } %>
-            </aside>
+                </aside>
             <div class="layout-page">
                 <!-- Navbar -->
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
@@ -162,9 +160,9 @@
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
                             <% if (settings.api.client.coins.enabled==true) { %>
-                                <button type="button" class="btn bg-label-secondary">
+                                <button type="button" class="btn bg-label-dark">
                                     <span>Your coins:</span>
-                                    <span class="badge bg-label-dark">
+                                    <span class="badge bg-label-secondary">
                                         <%= coins %>
                                     </span>
                                 <% } %>
@@ -203,6 +201,26 @@
                                             </div>
                                         </a>
                                     </li>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                      </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/profile">
+                                          <i class="bx bx-user me-2"></i>
+                                          <span class="align-middle">My Profile</span>
+                                        </a>
+                                      </li>
+                                      <% if (pterodactyl.root_admin==true) { %>
+                                        <li>
+                                            <a class="dropdown-item" href="/admin">
+                                              <i class="bx bx-shield-quarter"></i>
+                                              <span class="align-middle">Admin</span>
+                                            </a>
+                                          </li>
+                                        <% } %>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                          </li>
                                     <li>
                                         <a class="dropdown-item" href="/logout">
                                             <i class="bx bx-power-off me-2"></i>
@@ -245,9 +263,6 @@
                                         </div>
                                         <% } %>
                                             <% } %>
-                                                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Home /
-                                                    </span>Client Area
-                                                </h4>
                                                 <div class="row">
                                                     <div class="col-lg-8 mb-4 order-0">
                                                         <div class="card">
@@ -415,7 +430,7 @@
                                                             </div>
                                                         </div>
                                                         <!--/ Total Revenue -->
-                                                        <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+                                                        <div class="col-12 col-md- col-lg-4 order-3 order-md-2">
                                                             <div class="row">
                                                                 <div class="col-6 mb-4">
                                                                     <div class="card">
@@ -620,7 +635,7 @@
                                                                         <div class="avatar flex-shrink-0 me-3">
                                                                             <span
                                                                                 class="avatar-initial rounded bg-label-primary"><i
-                                                                                    class="bx bxl-discord"></i></span>
+                                                                                    class="bx bx-server"></i></span>
                                                                         </div>
                                                                         <div
                                                                             class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
@@ -638,92 +653,7 @@
                                                                         </div>
                                                                     </li> <br />
                                                                     <br />
-                                                                    <li class="d-flex">
-                                                                        <div class="avatar flex-shrink-0 me-3">
-                                                                            <span
-                                                                                class="avatar-initial rounded bg-label-primary"><i
-                                                                                    class="bx bx-reset"></i></span>
-                                                                        </div>
-                                                                        <div
-                                                                            class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                            <div class="me-2">
-                                                                                <small
-                                                                                    class="text-muted d-block mb-1">Reset
-                                                                                    Password</small>
-                                                                                <!-- Button trigger modal -->
-                                                                                <a style="cursor:pointer;"
-                                                                                    data-toggle="modal"
-                                                                                    data-target="#basicModal">
-                                                                                    <span
-                                                                                        class="btn btn-primary">Regenrate
-                                                                                        Password</span>
-                                                                                </a>
-                                                                                <!-- Modal -->
-                                                                                <div class="modal fade" id="basicModal"
-                                                                                    tabindex="1" aria-hidden="true">
-                                                                                    <div class="modal-dialog"
-                                                                                        role="document">
-                                                                                        <div class="modal-content">
-                                                                                            <div class="modal-header">
-                                                                                                <h5 class="modal-title"
-                                                                                                    id="exampleModalLabel1">
-                                                                                                    Your are
-                                                                                                    about to Reset your
-                                                                                                    Password!</h5>
-                                                                                                <button type="button"
-                                                                                                    class="btn-close"
-                                                                                                    data-dismiss="modal"
-                                                                                                    aria-label="Close"></button>
-                                                                                            </div>
-                                                                                            <div class="modal-body">
-                                                                                                <div class="row">
-                                                                                                    <div
-                                                                                                        class="col mb-3">
-                                                                                                        <h4
-                                                                                                            class="heading mt-4">
-                                                                                                            Are you
-                                                                                                            sure?
-                                                                                                        </h4>
-                                                                                                        <p>WARNING:
-                                                                                                            Pressing
-                                                                                                            "Okay, Reset
-                                                                                                            Password"
-                                                                                                            will reset
-                                                                                                            your panel
-                                                                                                            password and
-                                                                                                            you will
-                                                                                                            need
-                                                                                                            to login to
-                                                                                                            the panel
-                                                                                                            again. Only
-                                                                                                            reset your
-                                                                                                            password if
-                                                                                                            you really
-                                                                                                            need to
-                                                                                                            reset it.
-                                                                                                        </p>
-                                                                                                        <div
-                                                                                                            class="modal-footer">
-                                                                                                            <button
-                                                                                                                type="button"
-                                                                                                                class="btn btn-outline-secondary"
-                                                                                                                data-dismiss="modal">
-                                                                                                                Close
-                                                                                                            </button>
-                                                                                                            <a
-                                                                                                                href="/regen"><button
-                                                                                                                    type="button"
-                                                                                                                    class="btn btn-primary">Reset
-                                                                                                                    Password</button>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                    </li>
-                                                            </div>
+                                                                    </div>
                                                         </div>
                                                     </div>
                                                     <!--/ Expense Overview -->
@@ -845,7 +775,6 @@
     </div>
 
 <body>
-    <%- include('./parts/mainnav') %>
         <%- include('./parts/widgets') %>
             <%- include('./parts/ads') %>
                 <br></br>
@@ -864,6 +793,14 @@
                     <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
                     <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
                     <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+                    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="../assets/vendor/libs/popper/popper.js"></script>
+                    <script src="../assets/vendor/js/bootstrap.js"></script>
+                    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <script src="../assets/vendor/js/menu.js"></script>
+                    <script src="../assets/js/main.js"></script>
+                    <script src="../assets/js/pages-account-settings-account.js"></script>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>

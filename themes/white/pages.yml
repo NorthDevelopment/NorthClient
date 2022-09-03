@@ -11,6 +11,7 @@ redirect:
   updateservers: "/dashboard"
   createserver: "/servers"
   failedcreateserver: "/servers/new"
+  connect: "/connect"
   modifyserver: "/servers"
   failedmodifyserver: "/servers/edit"
   setplan: "/admin"
@@ -46,8 +47,10 @@ redirect:
   couponrevokesuccess: "/admin"
   removeaccountfailed: "/admin"
   removeaccountsuccess: "/admin"
+  profile: "/profile"
 
 pages:
+  connect: connect.ejs
   register: register.ejs
   dashboard: dashboard.ejs
   servers: servers.ejs
@@ -63,6 +66,7 @@ pages:
   status: status.ejs
   lv: linkvertise.ejs
   buy: buy.ejs
+  profile: profile.ejs
 
 mustbeloggedin:
   - "/dashboard"

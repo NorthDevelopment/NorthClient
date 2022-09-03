@@ -149,9 +149,9 @@
                                 <!-- Search -->
                                 <div class="navbar-nav align-items-center">
                                     <% if (settings.api.client.coins.enabled==true) { %>
-                                        <button type="button" class="btn bg-label-secondary">
+                                        <button type="button" class="btn bg-label-dark">
                                             <span>Your coins:</span>
-                                            <span class="badge bg-label-dark">
+                                            <span class="badge bg-label-secondary">
                                                 <%= coins %>
                                             </span>
                                         <% } %>
@@ -191,6 +191,26 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <div class="dropdown-divider"></div>
+                                              </li>
+                                            <li>
+                                                <a class="dropdown-item" href="/profile">
+                                                  <i class="bx bx-user me-2"></i>
+                                                  <span class="align-middle">My Profile</span>
+                                                </a>
+                                              </li>
+                                              <% if (pterodactyl.root_admin==true) { %>
+                                                <li>
+                                                    <a class="dropdown-item" href="/admin">
+                                                      <i class="bx bx-shield-quarter"></i>
+                                                      <span class="align-middle">Admin</span>
+                                                    </a>
+                                                  </li>
+                                                <% } %>
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                  </li>
+                                            <li>
                                                 <a class="dropdown-item" href="/logout">
                                                     <i class="bx bx-power-off me-2"></i>
                                                     <span class="align-middle">Log Out</span>
@@ -226,14 +246,22 @@
                         </div>
                     </div>
                     <%- include('./parts/footer') %>
-                        <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
-                        <script src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                        <script src="/assets/thmeneed/vendor/js-cookie/js.cookie.js"></script>
-                        <script src="/assets/thmeneed/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-                        <script src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-                        <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
-                        <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
-                        <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+                    <script src="/assets/thmeneed/vendor/jquery/dist/jquery.min.js"></script>
+                    <script src="/assets/thmeneed/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="/assets/thmeneed/vendor/js-cookie/js.cookie.js"></script>
+                    <script src="/assets/thmeneed/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+                    <script src="/assets/thmeneed/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+                    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
+                    <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
+                    <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+                    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="../assets/vendor/libs/popper/popper.js"></script>
+                    <script src="../assets/vendor/js/bootstrap.js"></script>
+                    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <script src="../assets/vendor/js/menu.js"></script>
+                    <script src="../assets/js/main.js"></script>
+                    <script src="../assets/js/pages-account-settings-account.js"></script>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
     </body>
     
     </html>

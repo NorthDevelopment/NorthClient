@@ -10,35 +10,13 @@
         <script async src="https://arc.io/widget.min.js#<%= settings.api.arcio.widgetid %>"></script>
         <% } %>
 
-            <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-            <link rel="icon"
-                href="https://images-ext-1.discordapp.net/external/sMKkyuJo8Wn_AK_Foyl0aGrWwhe9fbqtPgkThvHxdxs/%3Fsize%3D1024/https/cdn.discordapp.com/icons/933803406513012807/bb763a3db98f9f0ae8d6029e8355dd06.png"
-                type="image/png">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-            <link rel="stylesheet" href="/assets/thmeneed/vendor/nucleo/css/nucleo.css" type="text/css">
-            <link rel="stylesheet" href="/assets/thmeneed/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-                type="text/css">
             <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
             <script src="https://kit.fontawesome.com/b97ffc16ff.js" crossorigin="anonymous"></script>
-
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
             <title>Dashboard - <%= settings.name %>
             </title>
             <% if (settings.api.arcio.enabled==true) { %>
                 <script async src="https://arc.io/widget.min.js#<%= settings.api.arcio.widgetid %>"></script>
                 <% } %>
-                    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-                    <link rel="icon"
-                        href="https://images-ext-1.discordapp.net/external/sMKkyuJo8Wn_AK_Foyl0aGrWwhe9fbqtPgkThvHxdxs/%3Fsize%3D1024/https/cdn.discordapp.com/icons/933803406513012807/bb763a3db98f9f0ae8d6029e8355dd06.png"
-                        type="image/png">
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-                    <link rel="stylesheet" href="/assets/thmeneed/vendor/nucleo/css/nucleo.css" type="text/css">
-                    <link rel="stylesheet"
-                        href="/assets/thmeneed/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-                    <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
-                    <script src="https://kit.fontawesome.com/b97ffc16ff.js" crossorigin="anonymous"></script>
-
                     <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
                         data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
@@ -62,10 +40,8 @@
                         <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
                         <!-- Core CSS -->
-                        <link rel="stylesheet" href="../assets/vendor/css/core.css"
-                            class="template-customizer-core-css" />
-                        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css"
-                            class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
                         <link rel="stylesheet" href="../assets/css/main.css" />
 
                         <!-- Vendors CSS -->
@@ -196,9 +172,9 @@
                       <!-- Search -->
                       <div class="navbar-nav align-items-center">
                         <% if (settings.api.client.coins.enabled==true) { %>
-                            <button type="button" class="btn bg-label-secondary">
+                            <button type="button" class="btn bg-label-dark">
                                 <span>Your coins:</span>
-                                <span class="badge bg-label-dark">
+                                <span class="badge bg-label-secondary">
                                     <%= coins %>
                                 </span>
                             <% } %>
@@ -222,33 +198,54 @@
                                     </div>
                               </a>
                               <ul class="dropdown-menu dropdown-menu-end">
-                                  <li>
-                                      <a class="dropdown-item" href="#">
-                                          <div class="d-flex">
-                                              <div class="flex-shrink-0 me-3">
-                                                  <div class="avatar avatar-online">
-                                                      <img
-                                                          src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024 alt" />
-                                                  </div>
-                                              </div>
-                                              <div class="flex-grow-1">
-                                                  <span class="fw-semibold d-block">
-                                                      <%= req.session.userinfo.username%>#<%=
-                                                                      req.session.userinfo.discriminator %>
-                                                  </span>
-                                                  <small class="text-muted">ID: <%=
-                                                                  req.session.userinfo.id%></small>
-                                              </div>
-                                          </div>
-                                      </a>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar avatar-online">
+                                                    <img
+                                                    alt="Avatar" src="/assets/img/illustrations/pb.png">
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <span class="fw-semibold d-block">
+                                                    <%= req.session.userinfo.username%>#<%=
+                                                            req.session.userinfo.discriminator
+                                                            %>
+                                                </span>
+                                                <small class="text-muted">ID: <%=
+                                                        req.session.userinfo.id%></small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
                                   </li>
-                                  <li>
-                                      <a class="dropdown-item" href="/logout">
-                                          <i class="bx bx-power-off me-2"></i>
-                                          <span class="align-middle">Log Out</span>
-                                      </a>
+                                <li>
+                                    <a class="dropdown-item" href="/profile">
+                                      <i class="bx bx-user me-2"></i>
+                                      <span class="align-middle">My Profile</span>
+                                    </a>
                                   </li>
-                              </ul>
+                                  <% if (pterodactyl.root_admin==true) { %>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin">
+                                          <i class="bx bx-shield-quarter"></i>
+                                          <span class="align-middle">Admin</span>
+                                        </a>
+                                      </li>
+                                    <% } %>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                      </li>
+                                <li>
+                                    <a class="dropdown-item" href="/logout">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
                           </li>
                       </ul>
                   </div>
@@ -263,7 +260,7 @@
             let disk = 0;
             let cpu = 0;
             let databases = 0;
-            let ports = 0;
+            let allocations = 0;
             let backups = 0;
             let servers = pterodactyl.relationships.servers.data.length;
             for (let i = 0, len = pterodactyl.relationships.servers.data.length; i < len; i++) {
@@ -271,7 +268,7 @@
                 disk = disk + (typeof pterodactyl.relationships.servers.data[i].attributes.limits.disk == "number" ? pterodactyl.relationships.servers.data[i].attributes.limits.disk : 0);
                 cpu = cpu + (typeof pterodactyl.relationships.servers.data[i].attributes.limits.cpu == "number" ? pterodactyl.relationships.servers.data[i].attributes.limits.cpu : 0);
                 databases = databases + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases : 0);
-                ports = ports + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations : 0);
+                allocations = allocations + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations : 0);
                 backups = backups + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups : 0);
             }
         %>                            
@@ -311,8 +308,8 @@
                                     <label for="databases">Databases:</label>
                                     <input type="text" class="form-control" id="databases" placeholder="<%= databases %>">
                                     <br>
-                                    <label for="ports">Ports:</label>
-                                    <input type="text" class="form-control" id="ports" placeholder="<%= ports %>">
+                                    <label for="allocations">Ports:</label>
+                                    <input type="text" class="form-control" id="allocations" placeholder="<%= allocations %>">
                                     <br>
                                     <label for="backups">Backup Slots:</label>
                                     <input type="text" class="form-control" id="backups" placeholder="<%= backups %>">
@@ -327,10 +324,10 @@
                                         let disk = encodeURIComponent(document.getElementById("disk").value);
                                         let cpu = encodeURIComponent(document.getElementById("cpu").value);
                                         let databases = encodeURIComponent(document.getElementById("databases").value)
-                                        let ports = encodeURIComponent(document.getElementById("ports").value)
+                                        let allocations = encodeURIComponent(document.getElementById("allocations").value)
                                         let backups = encodeURIComponent(document.getElementById("backups").value)
                                         let location = encodeURIComponent(document.getElementById("location").value);
-                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=${databases}&ports=${ports}&backups=${backups}&location=${location}`;
+                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=${databases}&allocations=${allocations}&backups=${backups}&location=${location}`;
                                     };
                                 </script>
                                 </div>
@@ -356,6 +353,14 @@
         <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.min.js"></script>
         <script src="/assets/thmeneed/vendor/chart.js/dist/Chart.extension.js"></script>
         <script src="/assets/thmeneed/js/argon.js?v=1.2.0"></script>
+        <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../assets/vendor/libs/popper/popper.js"></script>
+        <script src="../assets/vendor/js/bootstrap.js"></script>
+        <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="../assets/vendor/js/menu.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/pages-account-settings-account.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
     
