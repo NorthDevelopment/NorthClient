@@ -1,8 +1,8 @@
 name: NorthClient
-defaulttheme: white
-version: 1.6.0
+defaulttheme: dark
+version: 1.7.0
 website:
-  port: 25565
+  port: 25567
   secret: Example Secret
 
 gift:
@@ -10,7 +10,7 @@ gift:
 
 discordserver:
   enabled: true
-  invitelink: https://discord.com/example
+  invitelink: https://discord.gg/c2V7NKKWCT
 
 ads:
   enabled: false
@@ -23,7 +23,7 @@ guildblacklist:
 
 pterodactyl:
   domain: https://panel.novohost.de
-  key: ptla_KkECCtsbTueQiDhhep4O1P1SXrCzvBaN1ELlCGWhscG1 (EXAMPLE API)
+  key: ptla_laeCicfK6qPMdBFnGxseyrI5OpKVHEVclYh74W9zXq0
 
 AFK Party: 
   enabled: false
@@ -48,7 +48,7 @@ linkvertise:
 
 status:
   enabled: true
-  script: https://www.issquareup.com/
+  script: https://example.com
 
 stripe:
   enabled: true  
@@ -129,9 +129,9 @@ api:
         cost: 0
 
     oauth2:
-      id: "APP ID"
-      secret: "APP SEC ID"
-      link: "UR DOMAIN/IP"
+      id: "998142896144404501"
+      secret: "KzG8RN2SA00ZXt4jjrgklyaTPGI5i6jh"
+      link: "https://demo.northdevelopment.ga"
       callbackpath: "/callback"
       prompt: true
 
