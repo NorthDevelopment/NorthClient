@@ -111,8 +111,9 @@ $ sudo pm2 restart all      #restart all apps
 <br/><br/><br/>
 ## :eyes:  Preview
 ![unknown](https://media.discordapp.net/attachments/984837636457918466/1003336465725526047/unknown.png?width=1329&height=670)
-![unknown](https://media.discordapp.net/attachments/984837636457918466/1003336558977490944/unknown.png?width=1333&height=670)
+![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085112900464800/unknown.png?width=1371&height=670)
 ![unknown](https://user-images.githubusercontent.com/71934318/180893825-36222dd0-0f8c-47ed-a36e-19938eb2a6e4.png)
+![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085166562398228/unknown.png?width=1369&height=670)
 
 <br/><br/><br/>
 ## :warning:  Warning/Copyright
@@ -139,6 +140,10 @@ Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <kbd><img src="https://avatars.githubusercontent.com/u/81978700?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/75165318?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/71870130?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/25504684?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/47180141?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/66245404?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
+
 <br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
