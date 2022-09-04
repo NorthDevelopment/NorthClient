@@ -237,5 +237,5 @@ api:
 
 widget: # If u wana use it u need to invite the Discord Bot (https://add.widgetbot.io/)
   enabled: false
-  server_id: GUILD_ID
-  channel_Id: CHANNEL_ID
+  server_id: "GUILD_ID"
+  channel_Id: "CHANNEL_ID"
