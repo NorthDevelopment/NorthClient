@@ -21,7 +21,7 @@ guildblacklist:
   - ServerID
   - ServerID
 
-pterodactyl:
+pterodactyl: ##go to ur panel get a api
   domain: https://panel.novohost.de
   key: ptla_laeCicfK6qPMdBFnGxseyrI5OpKVHEVclYh74W9zXq0
 
@@ -41,7 +41,7 @@ changelog:
     text: We went right to work on a new design.
     sent: sent 20.07.2022
 
-linkvertise:
+linkvertise: ##go to https://publisher.linkvertise.com/ to get ur userid
   enabled: true
   userid: 00000
   coins: 25
