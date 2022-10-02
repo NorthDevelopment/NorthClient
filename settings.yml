@@ -23,7 +23,7 @@ guildblacklist:
 
 pterodactyl: ##go to ur panel get a api
   domain: https://panel.novohost.de
-  key: ptla_laeCicfK6qPMdBFnGxseyrI5OpKVHEVclYh74W9zXq0
+  key: ptla_laeCicfK6qPMdBFnGxseyrI5OpKVHEVclYh74W9zXq0asdas
 
 AFK Party: 
   enabled: false
