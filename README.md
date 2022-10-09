@@ -129,6 +129,11 @@ Login:<br/>
 
 Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <br/><br/><br/>
+
+## 🎖️  NorthDevelopment Team
+<kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/71934318?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<br/><br/><br/>
 ## :heart:  Supporters
 <kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/71635703?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
@@ -143,7 +148,19 @@ Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <kbd><img src="https://avatars.githubusercontent.com/u/25504684?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/47180141?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/66245404?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/47180141?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/25504684?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/105011285?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/67504410?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/49806509?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/104288623?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/11256682?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/90916297?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/26302620?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/30575805?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
+<kbd><img src="https://avatars.githubusercontent.com/u/3486188?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
+
 
 <br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
