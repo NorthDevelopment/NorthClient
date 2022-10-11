@@ -13,7 +13,7 @@
 
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"></a><a href="#nastyox"><img src="http://randojs.com/images/dropShadow.png" width="75%"/></a></p><br/>
 
-## :hear_no_evil:  What's the NorthClient?  
+## :hear_no_evil:  What is NorthClient?  
 <a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> is a Pterodactyl client area, making it more comfortable for users to manage their servers 
 <br/><br/><br/>
 
