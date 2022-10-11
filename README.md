@@ -14,7 +14,7 @@
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"></a><a href="#nastyox"><img src="http://randojs.com/images/dropShadow.png" width="75%"/></a></p><br/>
 
 ## :hear_no_evil:  What's the NorthClient?  
-<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> There is a Pterodactyl client area, making it more comfortable for users to manage their servers 
+<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> is a Pterodactyl client area, making it more comfortable for users to manage their servers 
 <br/><br/><br/>
 
 ## :star: What Features ?
@@ -125,7 +125,7 @@ Login:<br/>
 > Password: demo<br/>
 <br/><br/><br/>
 
-##Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
+## Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <br/><br/><br/>
 <!---
 ## 🎖️  NorthDevelopment Team
@@ -159,7 +159,6 @@ Login:<br/>
 <kbd><img src="https://avatars.githubusercontent.com/u/3486188?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
 -->
-
 <br/>
 This repository is managed under the MIT license.
 
