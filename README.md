@@ -122,11 +122,11 @@ Check out our [demo](https://demo.northdevelopment.ga)<br/>
 Login:<br/>
 > Name: demo<br/>
 > E-Mail: demo@northdevelopment.de<br/>
-> Password: demo<br/>
-<br/><br/><br/>
+> Password: demo
+<br/>
 
 ## Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
-<br/><br/><br/>
+<br/>
 <!---
 ## 🎖️  NorthDevelopment Team
 <kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
@@ -162,7 +162,7 @@ Login:<br/>
 <br/>
 This repository is managed under the MIT license.
 
-© 2021-present [Votion-Development](https://github.com/Votion-Development)
+© 2021-present [Votion-Development](https://github.com/Votion-Development)<br/>
 © 2022-present NorthDevelopment
 
 With Special thanks to [JamieGrimwood](https://github.com/JamieGrimwood) for Helping us with license things, And [Votion-Development](https://github.com/Votion-Development/Dashactyl) for creating the base for this panel
