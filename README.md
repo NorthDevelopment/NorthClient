@@ -14,11 +14,11 @@
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"></a><a href="#nastyox"><img src="http://randojs.com/images/dropShadow.png" width="75%"/></a></p><br/>
 
 ## :hear_no_evil:  What's the NorthClient?  
-<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> is The best Pterodactyl Control Panel Making a free or paid host and need a way for users to sign up, earn coins, manage servers? Try out NorthClient. To get started, scroll down and follow the guide
+<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> There is a Pterodactyl client area, making it more comfortable for users to manage their servers 
 <br/><br/><br/>
 
 ## :star: What Features ?
-All features of<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"> NorthClient:</a>
+<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"> NorthClient's</a> features include:
 <br/>
 - Resource Management (gift, use it to create servers, edit servers)
 - Coins (Join for Rewards, Buy Coins)
@@ -47,20 +47,22 @@ All features of<a href="https://github.com/NorthDevelopment/NorthClient" target=
 Install pm2. (If you don't know how then look below.)
 
 //Step 02:
-Drop the files into your server and edit settings.yml. 
-Then go into the directory with >>$ cd /yourlocation<< then start the index.js with 
->>$ pm2 start index.js.<< 
+Drop the files into your server and edit settings.yml.
+//Step 03:
+move to >>$ cd /yourlocation<< 
+//Step 04: 
+start the Index.js with >>$ pm2 start index.js.<< 
 ```
 ___
-Or, use Pterodactyl Panel:
+Or, use Pterodactyl's Panel:
 ```JavaScript
 //Step 01:
 Install The egg discord.js generic and create a server with this egg
 
 //Step 02:
-Drop the Files in ur Server and Edit the settings.yml
+Drop the Files in your Server and Edit the settings.yml
 
-//Note: If u need Help just feel free to join the Discord or Report the Issue on GitHub.
+//Note: If you need Help, feel free to join the Discord or Report the Issue on GitHub.
 ``` 
   
 <br/><br/><br/>
@@ -87,15 +89,14 @@ $ curl -sL https://rpm.nodesource.com/setup_18.x | bash -
 $ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
   ```
 
-**Step 02**
   ```JavaScript
+  //Step 02:
 ---------- Install PM2 ---------- 
 $ sudo npm i -g pm2
   ```
 
-  
-**&#8674; Example Start pm2**  
   ```JavaScript
+&#8674; Example Start pm2
 $ sudo pm2 start /var/www/html/app/server.js -i 4 
 $ sudo pm2 save  (#save current process list on reboot)
 
@@ -114,22 +115,19 @@ $ sudo pm2 restart all      #restart all apps
 ![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085112900464800/unknown.png?width=1371&height=670)
 ![unknown](https://user-images.githubusercontent.com/71934318/180893825-36222dd0-0f8c-47ed-a36e-19938eb2a6e4.png)
 ![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085166562398228/unknown.png?width=1369&height=670)
-
 <br/><br/><br/>
-## :warning:  Warning/Copyright
-We cannot force you to keep the "made with ❤️ by Jonas.#9915" in the footer, but please consider keeping it. It helps getting more visibility to the project and so getting better. We won't do technical support for installations without the notice in the footer. And the version check in the Admin area.
 
-<br/><br/><br/>
-## :clap:  Supporte
+## :clap:  Demo
 Check out our [demo](https://demo.northdevelopment.ga)<br/>
 Login:<br/>
 > Name: demo<br/>
 > E-Mail: demo@northdevelopment.de<br/>
 > Password: demo<br/>
-
-Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <br/><br/><br/>
 
+##Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
+<br/><br/><br/>
+<!---
 ## 🎖️  NorthDevelopment Team
 <kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/71934318?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
@@ -160,7 +158,15 @@ Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
 <kbd><img src="https://avatars.githubusercontent.com/u/30575805?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/3486188?s=96&v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
-
+-->
 
 <br/>
+This repository is managed under the MIT license.
+
+© 2021-present [Votion-Development](https://github.com/Votion-Development)
+© 2022-present NorthDevelopment
+
+With Special thanks to [JamieGrimwood](https://github.com/JamieGrimwood) for Helping us with license things, And [Votion-Development](https://github.com/Votion-Development/Dashactyl) for creating the base for this panel
+<br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
+
