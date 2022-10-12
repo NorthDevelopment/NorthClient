@@ -160,6 +160,10 @@ Login:<br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
 -->
 <br/>
+
+
+## MIT license.
+
 This repository is managed under the MIT license.
 
 © 2021-present [Votion-Development](https://github.com/Votion-Development)<br/>
