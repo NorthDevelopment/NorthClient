@@ -171,5 +171,6 @@ This repository is managed under the MIT license.
 
 With Special thanks to [JamieGrimwood](https://github.com/JamieGrimwood) for Helping us with license things and [Votion-Development](https://github.com/Votion-Development/Dashactyl) for creating the base for this panel
 <br/>
+<br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
 
