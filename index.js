@@ -8,7 +8,6 @@ const chalk = require("chalk");
 const figlet = require('figlet')
 const yaml = require('js-yaml');
 const glob = require('glob');
-const arciotext = (require("./routes/arcio.js")).text;
 
 // Load settings.
 
@@ -156,9 +155,6 @@ const routes = glob.sync('./routes/**/*.js');
 app.all("*", async (req, res) => {
   if (req.session.pterodactyl) if (req.session.pterodactyl.id !== await db.get(`users-${req.session.userinfo.id}`)) return res.redirect("/login?prompt=none");
   let theme = indexjs.get(req);
-
-  let newsettings = require('./handlers/readSettings').settings();
-  if (newsettings.api.arcio.enabled == true) if (theme.settings.generateafktoken.includes(req._parsedUrl.pathname)) req.session.arcsessiontoken = Math.random().toString(36).substring(2, 15);
   
   if (theme.settings.mustbeloggedin.includes(req._parsedUrl.pathname)) if (!req.session.userinfo || !req.session.pterodactyl) return res.redirect("/login" + (req._parsedUrl.pathname.slice(0, 1) == "/" ? "?redirect=" + req._parsedUrl.pathname.slice(1) : ""));
   if (theme.settings.mustbeadmin.includes(req._parsedUrl.pathname)) {
@@ -281,16 +277,6 @@ module.exports.renderdataeval =
       pterodactyl: req.session.pterodactyl,
       theme: theme.name,
       extra: theme.settings.variables
-    };
-    if (typeof(partymode) != "undefined") renderdata.partymode = partymode;
-    if (typeof(arciotext) != "undefined") if (settings.api.arcio.enabled == true && req.session.arcsessiontoken) {
-      renderdata.arcioafktext = JavaScriptObfuscator.obfuscate(\`
-        let token = "\${req.session.arcsessiontoken}";
-        let everywhat = \${settings.api.arcio["afk page"].every};
-        let gaincoins = \${settings.api.arcio["afk page"].coins};
-        let arciopath = "\${settings.api.arcio["afk page"].path.replace(/\\\\/g, "\\\\\\\\").replace(/"/g, "\\\\\\"")}";
-        \${arciotext}
-      \`);
     };
     return renderdata;
   })();`;

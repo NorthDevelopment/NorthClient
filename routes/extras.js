@@ -3,7 +3,7 @@ const fs = require('fs');
 const makeid = require('../handlers/makeid');
 
 const indexjs = require("../index.js");
-const arciotext = (require("./arcio.js")).text;
+
 const fetch = require('node-fetch');
 
 module.exports.load = async function(app, ejs, db) {

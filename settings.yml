@@ -2,7 +2,7 @@ name: NorthClient
 defaulttheme: dark
 version: 1.7.0
 website:
-  port: 25567
+  port: 9000
   secret: Example Secret
 
 gift:
@@ -22,8 +22,8 @@ guildblacklist:
   - ServerID
 
 pterodactyl: ##go to ur panel get a api
-  domain: https://panel.novohost.de
-  key: ptla_laeCicfK6qPMdBFnGxseyrI5OpKVHEVclYh74W9zXq0asdas
+  domain: https://panel.example.de
+  key: ptla_yourexamplepteroapi
 
 AFK Party: 
   enabled: false
@@ -122,16 +122,16 @@ api:
         modify: true
         delete: true
 
-      overresourcessuspend: false # Enable this to suspend the server if the user edits the server resources
+      overresourcessuspend: true # Enable this to suspend the server if the user edits the server resources
       renewsuspendsystem:
         enabled: false
         time: 3600
         cost: 0
 
     oauth2:
-      id: "998142896144404501"
-      secret: "KzG8RN2SA00ZXt4jjrgklyaTPGI5i6jh"
-      link: "https://demo.northdevelopment.ga"
+      id: "Ur ID"
+      secret: "Your Secret API"
+      link: "Your Domain"
       callbackpath: "/callback"
       prompt: true
 
@@ -221,20 +221,6 @@ api:
         backups:
           cost: 100
           per: 10
-
-  minero:
-    enabled: false
-    key: Minero Public Key
-
-  arcio:
-    enabled: false
-    widgetid: Arc Widget ID
-    afk page:
-      enabled: true
-      path: afkwspath
-      every: 60
-      coins: 1
-
 widget: # If u wana use it u need to invite the Discord Bot (https://add.widgetbot.io/)
   enabled: false
   server_id: "GUILD_ID"

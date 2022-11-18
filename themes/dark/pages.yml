@@ -38,7 +38,6 @@ redirect:
   failedpurchasecpu: "/store"
   purchaseservers: "/store"
   failedpurchaseservers: "/store"
-  arcioerror: "/dashboard"
   missingorinvalidcouponcode: "/redeem"
   successfullyredeemedcoupon: "/redeem"
   couponcreationfailed: "/admin"
@@ -59,7 +58,6 @@ pages:
   admin: admin.ejs
   store: store.ejs
   afk: afk.ejs
-  arcio: arcio.ejs
   redeem: redeem.ejs
   gift: gift.ejs
   j4r: j4r.ejs
