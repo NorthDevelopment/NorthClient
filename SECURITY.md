@@ -12,10 +12,6 @@ currently being supported with security updates.
 | 1.6.x   | :x:                |
 | < 1.5   | :x:                |
 
-## Reporting a Vulnerability
+## Reporting a Error
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Got to our Discord and send the Error in the #support channel from NorthClient. <br/> A Stuff Member or a Community Member will help u!
