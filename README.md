@@ -167,7 +167,7 @@ Login:<br/>
 This repository is managed under the MIT license.
 
 © 2021-present [Votion-Development](https://github.com/Votion-Development)<br/>
-© 2022-present NorthDevelopment
+© 2023-present NorthDevelopment
 
 With Special thanks to [JamieGrimwood](https://github.com/JamieGrimwood) for Helping us with license things and [Votion-Development](https://github.com/Votion-Development/Dashactyl) for creating the base for this panel
 <br/>
