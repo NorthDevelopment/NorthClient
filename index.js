@@ -74,7 +74,7 @@ app.use(express.json({
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 console.log(chalk.cyan(figlet.textSync("NorthClient")));
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-console.log(chalk.cyan("[NorthClient] Copyright 2022 ©️ NorthDevelopment"));
+console.log(chalk.cyan("[NorthClient] Copyright 2022-2023 ©️ NorthDevelopment"));
 console.log(chalk.cyan("[Github] https://github.com/NorthDevelopment/NorthClient"));
 console.log(chalk.cyan("[Discord] https://discord.gg/c2V7NKKWCT"));
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
