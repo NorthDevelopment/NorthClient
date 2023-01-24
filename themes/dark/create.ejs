@@ -256,7 +256,7 @@
             let disk = 0;
             let cpu = 0;
             let databases = 0;
-            let allocations = 0;
+            let ports = 0;
             let backups = 0;
             let servers = pterodactyl.relationships.servers.data.length;
             for (let i = 0, len = pterodactyl.relationships.servers.data.length; i < len; i++) {
@@ -264,7 +264,7 @@
                 disk = disk + (typeof pterodactyl.relationships.servers.data[i].attributes.limits.disk == "number" ? pterodactyl.relationships.servers.data[i].attributes.limits.disk : 0);
                 cpu = cpu + (typeof pterodactyl.relationships.servers.data[i].attributes.limits.cpu == "number" ? pterodactyl.relationships.servers.data[i].attributes.limits.cpu : 0);
                 databases = databases + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.databases : 0);
-                allocations = allocations + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.allocations : 0);
+                ports = ports + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.ports == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.ports : 0);
                 backups = backups + (typeof pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups == "number" ? pterodactyl.relationships.servers.data[i].attributes.feature_limits.backups : 0);
             }
         %>                            
@@ -304,8 +304,8 @@
                                     <label for="databases">Databases:</label>
                                     <input type="text" class="form-control" id="databases" placeholder="<%= databases %>">
                                     <br>
-                                    <label for="allocations">Ports:</label>
-                                    <input type="text" class="form-control" id="allocations" placeholder="<%= allocations %>">
+                                    <label for="ports">Ports:</label>
+                                    <input type="text" class="form-control" id="ports" placeholder="<%= ports %>">
                                     <br>
                                     <label for="backups">Backup Slots:</label>
                                     <input type="text" class="form-control" id="backups" placeholder="<%= backups %>">
@@ -320,10 +320,10 @@
                                         let disk = encodeURIComponent(document.getElementById("disk").value);
                                         let cpu = encodeURIComponent(document.getElementById("cpu").value);
                                         let databases = encodeURIComponent(document.getElementById("databases").value)
-                                        let allocations = encodeURIComponent(document.getElementById("allocations").value)
+                                        let ports = encodeURIComponent(document.getElementById("ports").value)
                                         let backups = encodeURIComponent(document.getElementById("backups").value)
                                         let location = encodeURIComponent(document.getElementById("location").value);
-                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=${databases}&allocations=${allocations}&backups=${backups}&location=${location}`;
+                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=${databases}&ports=${ports}&backups=${backups}&location=${location}`;
                                     };
                                 </script>
                                 </div>
