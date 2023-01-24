@@ -301,15 +301,6 @@
                                     <label for="cpu">CPU:</label>
                                     <input type="text" class="form-control" id="cpu" placeholder="<%= cpu %>">
                                     <br>
-                                    <label for="databases">Databases:</label>
-                                    <input type="text" class="form-control" id="databases" placeholder="<%= databases %>">
-                                    <br>
-                                    <label for="ports">Ports:</label>
-                                    <input type="text" class="form-control" id="ports" placeholder="<%= ports %>">
-                                    <br>
-                                    <label for="backups">Backup Slots:</label>
-                                    <input type="text" class="form-control" id="backups" placeholder="<%= backups %>">
-                                    <br>
                                     <button onclick="submitForm()" class="btn btn-primary" style="background-color: #33404D;">Create</button>
                                 <br></div></div>
                                 <script>
@@ -319,11 +310,8 @@
                                         let ram = encodeURIComponent(document.getElementById("ram").value);
                                         let disk = encodeURIComponent(document.getElementById("disk").value);
                                         let cpu = encodeURIComponent(document.getElementById("cpu").value);
-                                        let databases = encodeURIComponent(document.getElementById("databases").value)
-                                        let ports = encodeURIComponent(document.getElementById("ports").value)
-                                        let backups = encodeURIComponent(document.getElementById("backups").value)
                                         let location = encodeURIComponent(document.getElementById("location").value);
-                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=${databases}&ports=${ports}&backups=${backups}&location=${location}`;
+                                        document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&databases=0&ports=0&backups=0&location=${location}`;
                                     };
                                 </script>
                                 </div>
