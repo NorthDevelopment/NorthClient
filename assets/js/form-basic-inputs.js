@@ -1,11 +1,1 @@
-/**
- * Form Basic Inputs
- */
-
-'use strict';
-
-(function () {
-  // Indeterminate checkbox
-  const checkbox = document.getElementById('defaultCheck2');
-  checkbox.indeterminate = true;
-})();
+"use strict";document.getElementById("defaultCheck2").indeterminate=!0;
