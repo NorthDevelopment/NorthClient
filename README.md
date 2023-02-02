@@ -125,7 +125,7 @@ Login:<br/>
 > Password: demo
 <br/>
 
-## Check out our [Discord Support](https://discord.gg/c2V7NKKWCT)<br/>
+## Check out our [Discord Support](https://discord.gg/fUvK2jed34)<br/>
 <br/>
 <!---
 ## 🎖️  NorthDevelopment Team
