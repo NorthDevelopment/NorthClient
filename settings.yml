@@ -1,5 +1,7 @@
 name: NorthClient
-defaulttheme: dark
+defaulttheme: NorthClientTheme
+domainend: .de #ur domain end like .de .com .au .en .whatever (for the future updates)
+logo: https://media.discordapp.net/attachments/984837636457918465/1000014634012647464/giphy.gif
 version: 1.8.0
 website:
   port: 9000

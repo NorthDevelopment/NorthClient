@@ -29,7 +29,7 @@ module.exports = {
     },
 
     async getCoinLeaderboard(limit) {
-      let leaderboard = db.prepare(`SELECT * FROM table where Name like '%coins' LIMIT ${limit};`);
+      let leaderboard = db.prepare(`SELECT * FROM keyv where Name like '%coins' LIMIT ${limit};`);
 
       leaderboard = leaderboard.map(r => JSON.parse(JSON.stringify(r)))
 
