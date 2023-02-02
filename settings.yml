@@ -1,5 +1,5 @@
 name: NorthClient
-defaulttheme: dark
+defaulttheme: NorthClientTheme
 version: 1.9.0
 website:
   port: 9000
