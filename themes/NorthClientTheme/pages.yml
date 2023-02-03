@@ -47,7 +47,6 @@ redirect:
   removeaccountfailed: "/admin"
   removeaccountsuccess: "/admin"
   profile: "/profile"
-  faq: "/faq"
 
 pages:
   connect: connect.ejs
@@ -66,7 +65,6 @@ pages:
   lv: linkvertise.ejs
   buy: buy.ejs
   profile: profile.ejs
-  faq: faq.ejs
 
 mustbeloggedin:
   - "/dashboard"
@@ -81,8 +79,6 @@ mustbeloggedin:
   - "/status"
   - "/lv"
   - "/buy"
-  - "/profile"
-  - "/faq"
 
 mustbeadmin:
   - "/admin"
