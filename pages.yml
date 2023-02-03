@@ -1,0 +1,100 @@
+index: index.ejs
+notfound: 404.ejs
+nopermission: 403.ejs
+redirect:
+  callback: "/dashboard"
+  failedcallback: "/"
+  afk: "/afk"
+  logout: "/"
+  register: "/register"
+  deleteserver: "/servers"
+  updateservers: "/dashboard"
+  createserver: "/servers"
+  failedcreateserver: "/servers/new"
+  connect: "/connect"
+  modifyserver: "/servers"
+  failedmodifyserver: "/servers/edit"
+  setplan: "/admin"
+  failedsetplan: "/admin"
+  getip: "/admin"
+  failedgetip: "/admin"
+  createserverdisabled: "/servers?err=disabled"
+  modifyserverdisabled: "/servers?err=disabled"
+  deleteserverdisabled: "/servers?err=disabled"
+  regenpassword: "/dashboard"
+  setresources: "/admin"
+  failedsetresources: "/admin"
+  giftresources: "/gift"
+  failedgiftresources: "/gift"
+  renewserver: "/servers"
+  failedrenewserver: "/servers"
+  setcoins: "/admin"
+  failedsetcoins: "/admin"
+  purchaseram: "/store"
+  failedpurchaseram: "/store"
+  purchasedisk: "/store"
+  failedpurchasedisk: "/store"
+  purchasecpu: "/store"
+  failedpurchasecpu: "/store"
+  purchaseservers: "/store"
+  failedpurchaseservers: "/store"
+  missingorinvalidcouponcode: "/redeem"
+  successfullyredeemedcoupon: "/redeem"
+  couponcreationfailed: "/admin"
+  couponcreationsuccess: "/admin"
+  couponrevokefailed: "/admin"
+  couponrevokesuccess: "/admin"
+  removeaccountfailed: "/admin"
+  removeaccountsuccess: "/admin"
+  profile: "/profile"
+
+pages:
+  connect: connect.ejs
+  register: register.ejs
+  dashboard: dashboard.ejs
+  servers: servers.ejs
+  servers/new: create.ejs
+  servers/edit: edit.ejs
+  admin: admin.ejs
+  store: store.ejs
+  afk: afk.ejs
+  redeem: redeem.ejs
+  gift: gift.ejs
+  j4r: j4r.ejs
+  status: status.ejs
+  lv: linkvertise.ejs
+  buy: buy.ejs
+  profile: profile.ejs
+
+mustbeloggedin:
+  - "/dashboard"
+  - "/servers"
+  - "/servers/new"
+  - "/servers/edit"
+  - "/store"
+  - "/afk"
+  - "/redeem"
+  - "/gift"
+  - "/j4r"
+  - "/status"
+  - "/lv"
+  - "/buy"
+
+mustbeadmin:
+  - "/admin"
+
+generateafktoken:
+  - "/afk"
+
+variables:
+  footerad: true
+  name: NorthClient
+  home:
+    title: NorthClient
+    buttontext:
+      loggedin:
+        text: Dashboard
+        link: "/dashboard"
+      loggedout:
+        text: <img src="https://i.imgur.com/EYGXn9D.png" width="25" /> Login with Discord
+        link: "/login"
