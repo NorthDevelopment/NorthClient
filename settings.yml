@@ -1,11 +1,14 @@
 name: NorthClient
 defaulttheme: NorthClientTheme
-domainend: .de #ur domain end like .de .com .au .en .whatever
 logo: https://media.discordapp.net/attachments/984837636457918465/1000014634012647464/giphy.gif
 version: 1.9.0
 website:
   port: 9000
   secret: Example Secret
+
+data:
+ email: "Support@NorthHost.de"
+ number: "+49 1567 120321235"
 
 gift:
   enabled: true
@@ -227,3 +230,55 @@ widget: # If u wana use it u need to invite the Discord Bot (https://add.widgetb
   enabled: false
   server_id: "GUILD_ID"
   channel_Id: "CHANNEL_ID"
+
+faq:
+ date: "12/12/2012"
+ payment: 
+  questions: 
+   Q1: "When is payment taken for my order?"
+   Q2: "How do I pay for my order?"
+   Q3: "What should I do if I'm having trouble placing an order?"
+   Q4: "Which license do I need for an end product that is only accessible to paying users?"
+   Q5: "Does my subscription automatically renew?"
+  answers:
+   A1: "Payment is taken during the checkout process when you pay for your order. The order number that appears on the confirmation screen indicates payment has been successfully processed."
+   A2: "We accept Visa®, MasterCard®, American Express®, and PayPal®. Our servers encrypt all information submitted to them, so you can be confident that your credit card information will be kept safe and secure."
+   A3: "For any technical difficulties you are experiencing with our website, please contact us at our support portal, or you can call us toll-free at +49 15132, or email us at order@NorthHost.de"
+   A4: "If you have paying users or you are developing any SaaS products then you need an Extended License. For each products, you need a license. You can get free lifetime updates as well."
+   A5: "No, This is not subscription based item.Pastry pudding cookie toffee bonbon jujubes jujubes powder topping. Jelly beans gummi bears sweet roll bonbon muffin liquorice. Wafer lollipop sesame snaps."
+ delivery: 
+  questions: 
+   Q1: "How would you ship my order?"
+   Q2: "What is the delivery cost of my order?"
+   Q3: "What to do if my product arrives damaged?"
+  answers:
+   A1: "For large products, we deliver your product via a third party logistics company offering you the “room of choice” scheduled delivery service. For small products, we offer free parcel delivery."
+   A2: "The cost of scheduled delivery is $69 or $99 per order, depending on the destination postal code. The parcel delivery is free."
+   A3: "We will promptly replace any product that is damaged in transit. Just contact our support team, to notify us of the situation within 48 hours of product arrival."
+ cr: 
+  questions: 
+   Q1: "Can I cancel my order?"
+   Q2: "Can I return my product?"
+   Q3: "Where can I view status of return?"
+  answers:
+   A1: "Scheduled delivery orders can be cancelled 72 hours prior to your selected delivery date for full refund. Parcel delivery orders cannot be cancelled, however a free return label can be provided upon request."
+   A2: "You can return your product within 15 days of delivery, by contacting our support team, All merchandise returned must be in the original packaging with all original items."
+   A3: "Locate the item from Your Orders Select Return/Refund status."
+ orders: 
+  questions: 
+   Q1: "Has my order been successful?"
+   Q2: "My Promotion Code is not working, what can I do?"
+   Q3: "How do I track my Orders?"
+  answers:
+   A1: "All successful order transactions will receive an order confirmation email once the order has been processed. If you have not received your order confirmation email within 24 hours, check your junk email or spam folder. Alternatively, log in to your account to check your order summary. If you do not have a account, you can contact our Customer Care Team on Support@NorthClient.de."
+   A2: "If you are having issues with a promotion code, please contact us at Support@NorthClient.de for assistance."
+   A3: "If you have an account just sign into your account from here and select“My Servers. If you have a a guest account track your order from here using the server number and the email address."
+ ps: 
+  questions: 
+   Q1: "Will I be notified once my order has shipped?"
+   Q2: "Where can I find warranty information?"
+   Q3: "How can I purchase additional warranty coverage?"
+  answers:
+   A1: "Yes, We will send you an email once your order has been shipped. This email will contain tracking and order information."
+   A2: "We are committed to quality products. For information on warranty period and warranty services, visit our Warranty section in Our Discord."
+   A3: "For the peace of your mind, we offer extended warranty plans that add additional year(s) of protection to the standard manufacturer’s warranty provided by us. To purchase or find out more about the extended warranty program, visit Extended Warranty section in our Discord."
