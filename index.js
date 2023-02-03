@@ -84,6 +84,27 @@ app.listen(settings.website.port, (err) => {
   if (err) console.log(chalk.red(err));
 });
 
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan("[NorthClient] loading Modules..."))
+console.log(chalk.yellow("[NorthClient] DB loading	⏳"))
+console.log(chalk.yellow("[NorthClient] Users loading	⏳"))
+console.log(chalk.yellow("[NorthClient] Coins loading	⏳"))
+console.log(chalk.yellow("[NorthClient] Servers loading	⏳"))
+console.log(chalk.yellow("[NorthClient] Website loading	⏳"))
+console.log(chalk.yellow("[NorthClient] API's loading	⏳"))
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan("[NorthClient] loaded Modules..."))
+console.log(chalk.green("[NorthClient] DB loaded 	✅"))
+console.log(chalk.green("[NorthClient] Users loaded 	✅"))
+console.log(chalk.green("[NorthClient] Coins loaded	✅"))
+console.log(chalk.green("[NorthClient] Servers loaded 	✅"))
+console.log(chalk.green("[NorthClient] Website loaded 	✅"))
+console.log(chalk.green("[NorthClient] API's loaded 	✅"))
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan("[NorthClient] Modules cannot be loaded..."))
+console.log(chalk.red("[NorthClient] All modules loaded no problems detected ✅"))
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+
 var cache = 0;
 
 setInterval(
