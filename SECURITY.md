@@ -6,10 +6,10 @@ Here you can see our supported versions! If there is an :x:, it is no longer sup
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.8.x   | :white_check_mark: |
-| 1.7.x   | :x:                |
-| 1.6.x   | :x:                |
-| < 1.5   | :x:                |
+| 2.0.x   | :white_check_mark: |
+| 1.9.x   | :x:                |
+| 1.8.x   | :x:                |
+| < 1.7   | :x:                |
 
 ## Reporting a Error
 
