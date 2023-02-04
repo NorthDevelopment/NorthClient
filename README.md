@@ -111,9 +111,9 @@ $ sudo pm2 restart all      #restart all apps
   ```
 <br/><br/><br/>
 ## :eyes:  Preview
-![unknown](https://media.discordapp.net/attachments/984837636457918466/1003336465725526047/unknown.png?width=1329&height=670)
-![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085112900464800/unknown.png?width=1371&height=670)
-![unknown](https://user-images.githubusercontent.com/71934318/180893825-36222dd0-0f8c-47ed-a36e-19938eb2a6e4.png)
+![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200239844868096/Screenshot_2023-02-03_234319.png?width=1351&height=670)
+![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200240771809410/Screenshot_2023-02-03_234341.png?width=1361&height=670)
+![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200240096510022/Screenshot_2023-02-03_234546.png?width=1351&height=670)
 ![unknown](https://media.discordapp.net/attachments/984837636457918465/1007085166562398228/unknown.png?width=1369&height=670)
 <br/><br/><br/>
 
