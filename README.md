@@ -166,10 +166,9 @@ Login:<br/>
 
 This repository is managed under the MIT license.
 
-© 2021-present [Votion-Development](https://github.com/Votion-Development)<br/>
 © 2023-present NorthDevelopment
 
-With Special thanks to [JamieGrimwood](https://github.com/JamieGrimwood) for Helping us with license things and [Votion-Development](https://github.com/Votion-Development/Dashactyl) for creating the base for this panel
+This Panel is still under Development by Jonas and David.
 <br/>
 <br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
