@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 NorthDevelopment
+Copyright (c) 2023 NorthDevelopment, Votion Development
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+License Note:
+Votion Development has been responsible for part of the back-end, we thank them for that! 
+For the front-end and any further development the NorthDevelopment team is responsible.
+Votion Development has no copyright on the front-end so it is not related to the back-end and has nothing to do with it.
