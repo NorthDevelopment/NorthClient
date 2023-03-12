@@ -100,25 +100,27 @@ folderPaths.forEach(folderPath => {
 
 // Backup files.
 const path = require('path');
-const backupFolderPath = './dbbackup';
+const backupFolderPath1 = './dbbackup/sqlite';
+const backupFolderPath2 = './dbbackup/session';
 const filePath1 = './db.sqlite';
 const filePath2 = './sessions.db';
 
 function backupFiles() {
-  if (!fs.existsSync(backupFolderPath)) {
-    fs.mkdirSync(backupFolderPath);
+  if (!fs.existsSync(backupFolderPath1, backupFolderPath2)) {
+    fs.mkdirSync(backupFolderPath1)
+    fs.mkdirSync(backupFolderPath2)
   }
 
   const date = new Date();
 
   const backupFileName1 = `backup_${path.basename(filePath1, path.extname(filePath1))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath1)}`;
-  fs.copyFileSync(filePath1, path.join(backupFolderPath, backupFileName1));
+  fs.copyFileSync(filePath1, path.join(backupFolderPath1, backupFileName1));
   console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-  console.log(chalk.green(`[NorthClient] File '${filePath1}' backed up to '${backupFolderPath}/${backupFileName1}'` + " ✅"));
+  console.log(chalk.green(`[NorthClient] File '${filePath1}' backed up to '${backupFolderPath1}/${backupFileName1}'` + " ✅"));
 
   const backupFileName2 = `backup_${path.basename(filePath2, path.extname(filePath2))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath2)}`;
-  fs.copyFileSync(filePath2, path.join(backupFolderPath, backupFileName2));
-  console.log(chalk.green(`[NorthClient] File '${filePath2}' backed up to '${backupFolderPath}/${backupFileName2}'` + " ✅"));
+  fs.copyFileSync(filePath2, path.join(backupFolderPath2, backupFileName2));
+  console.log(chalk.green(`[NorthClient] File '${filePath2}' backed up to '${backupFolderPath2}/${backupFileName2}'` + " ✅"));
   console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 }
 backupFiles();
@@ -126,8 +128,6 @@ backupFiles();
 process.on('beforeExit', () => {
   backupFiles();
 });
-
-
 
 var cache = 0;
 
