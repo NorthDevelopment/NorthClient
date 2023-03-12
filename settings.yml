@@ -1,284 +1,358 @@
-name: NorthClient
-defaulttheme: NorthClientTheme
-logo: https://media.discordapp.net/attachments/984837636457918465/1000014634012647464/giphy.gif
-version: 2.0.0
-website:
-  port: 9000
-  secret: Example Secret
+"use strict";
 
-data:
- email: "Support@NorthHost.de"
- number: "+49 1567 120321235"
+// Load packages.
 
-gift:
-  enabled: true
+const fs = require("fs");
+const fetch = require('node-fetch');
+const chalk = require("chalk");
+const figlet = require('figlet')
+const yaml = require('js-yaml');
+const glob = require('glob');
 
-discordserver:
-  enabled: true
-  invitelink: https://discord.gg/c2V7NKKWCT
+// Load settings.
 
-ads:
-  enabled: false
-  script: ''
+const settings = require('./handlers/readSettings').settings();
 
-guildblacklist:
-  guilds:
-  - ServerID
-  - ServerID
+const defaultthemesettings = {
+  index: "index.ejs",
+  notfound: "index.ejs",
+  redirect: {},
+  pages: {},
+  mustbeloggedin: [],
+  mustbeadmin: [],
+  variables: {}
+};
 
-pterodactyl: ##go to ur panel get a api
-  domain: https://panel.example.de
-  key: ptla_yourexamplepteroapi
+// Load database
 
-AFK Party: 
-  enabled: false
-  webhook: https://discord.com/api/webhooks/example/example
-  users: 25
-  multiplier: 2	
+const db = require('./handlers/database');
+module.exports.db = db;
 
-changelog:
-  first:
-    header: Projekt Start
-    text: The project has started on 20.07.2022 at 21:00.
-    sent: sent 20.07.2022
-  second:
-    header: New Design
-    text: We went right to work on a new design.
-    sent: sent 20.07.2022
+// Load websites.
 
-linkvertise: ##go to https://publisher.linkvertise.com/ to get ur userid
-  enabled: true
-  userid: 00000
-  coins: 25
+const express = require("express");
+const app = express();
+module.exports.app = app
 
-status:
-  enabled: true
-  script: https://example.com
+// Load express addons.
 
-stripe:
-  enabled: true  
-  key: 0000000000 # Replace this with your Stripe API Key
-  coins: 200 # Coins per amount in USD
-  amount: 1
+const ejs = require("ejs");
+const session = require("express-session");
+require('express-ws')(app);
+const indexjs = require("./index.js");
 
-smtp:
-  enabled: false
-  host: Example Host
-  port: 7080
-  username: Example Username
-  password: Example Password
+// Sets up saving session data.
 
-api:
-  server:
-    enabled: true
-    key: API KEY
-  client:
-    j4r: 
-      enabled: true
-      ads:
-      - name: Example Server 1
-        id: 984837635879104602
-        invite: https://discord.gg/c2V7NKKWCT
-        coins: 50
-      - name: Example Server 2
-        id: 984837635879104602
-        invite: https://discord.gg/c2V7NKKWCT
-        coins: 50
-      - name: Example Server 3
-        id: 984837635879104602
-        invite: https://discord.gg/c2V7NKKWCT
-        coins: 50
-      - name: Example Server 4
-        id: 984837635879104602
-        invite: https://discord.gg/c2V7NKKWCT
-        coins: 50
+const sqlite = require("better-sqlite3");
+const SqliteStore = require("better-sqlite3-session-store")(session);
+const session_db = new sqlite("sessions.db");
 
-    Role Packages:
-      enabled: false
-      Server: SERVERID # Replace SERVERID with your Guild/Server ID
-      list: # Replace ROLEID with the Role ID, you can add as many as you want.
-        RoleID: Package Name 
+// Load the website.
 
-    bot:
-      token: Example Token
-      joinguild:
-        enabled: false
-        guildid:
-        - SERVERID
-        - SERVERID
-        forcejoin: false
-        registeredrole: ""
+app.use(session({
+  secret: settings.website.secret,
+  resave: true,
+  saveUninitialized: true,
+  store: new SqliteStore({
+    client: session_db, 
+    expired: {
+      clear: true,
+      intervalMs: 900000
+    }
+  })
+}));
 
-    webhook:
-      webhook_url: Example URL
-      auditlogs:
-        enabled: false
-        disabled: []
+app.use(express.json({
+  inflate: true,
+  limit: '500kb',
+  reviver: null,
+  strict: true,
+  type: 'application/json',
+  verify: undefined
+}));
 
-    passwordgenerator:
-      signup: true # Use this to disable signups
-      length: 8
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan(figlet.textSync("NorthClient")));
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan("[Github] https://github.com/NorthDevelopment/NorthClient"));
+console.log(chalk.cyan("[Discord] https://discord.gg/c2V7NKKWCT"));
+console.log(chalk.cyan("[NorthClient] Copyright 2022-2023 ©️ NorthDevelopment"));
+console.log(chalk.cyan("[NorthClient] All Rights Reserved."));
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+console.log(chalk.cyan(`[NorthClient] Loaded Dashboard on the port ${settings.website.port}`));
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
-    allow:
-      newusers: true
-      regen: true
-      server:
-        create: true
-        modify: true
-        delete: true
+// Load the folders.
 
-      overresourcessuspend: true # Enable this to suspend the server if the user edits the server resources
-      renewsuspendsystem:
-        enabled: false
-        time: 3600
-        cost: 0
+const folderPaths = ['./routes', './handlers', './themes', './settings.yml'];
 
-    oauth2:
-      id: "Ur ID"
-      secret: "Your Secret API"
-      link: "Your Domain"
-      callbackpath: "/callback"
-      prompt: true
+folderPaths.forEach(folderPath => {
+  if (fs.existsSync(folderPath)) {
+    console.log(chalk.green(`[NorthClient] '${folderPath}' loaded 	✅`));
+  }
+   else {
+    console.log(chalk.red(`[NorthClient] '${folderPath}' not found 	❌`));
+    console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  }
+});
 
-      ip:
-        trust x-forwarded-for: true
-        block: []
-        duplicate check: false
 
-    packages:
-      default: default
-      list:
-        default:
-          ram: 1024
-          disk: 1024
-          cpu: 100
-          servers: 1
-          databases: 2
-          allocations: 2
-          backups: 2
 
-    locations:
-      '1':
-        name: Node01
-        package: Node01
+// Backup files.
+const path = require('path');
+const backupFolderPath1 = './dbbackup/sqlite';
+const backupFolderPath2 = './dbbackup/session';
+const filePath1 = './db.sqlite';
+const filePath2 = './sessions.db';
 
-    eggs:
-      paper:
-        display: Minecraft Java
-        minimum:
-          ram: 1024
-          disk: 1024
-          cpu: 100
-        maximum:
-          ram: 2000
-          disk: 2000
-          cpu: 2000
-        info:
-          egg: 3
-          docker_image: ghcr.io/pterodactyl/yolks:java_17
-          startup: java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true
-            -jar {{SERVER_JARFILE}}
-          environment:
-            SERVER_JARFILE: server.jar
-            BUILD_NUMBER: latest
-          feature_limits:
-            databases: 4
-            backups: 4
-      discord.js generic:
-        display: Discordjsgeneric
-        minimum:
-          ram: 512
-          disk: 512
-          cpu: 0
-        maximum:
-          ram: 2000
-          disk: 2000
-          cpu: 2000
-        info:
-          egg: 15
-          docker_image: ghcr.io/parkervcp/yolks:nodejs_17
-          startup: if [[ -d .git ]] && [[ {{AUTO_UPDATE}} == "1" ]]; then git pull; fi; if [[ ! -z ${NODE_PACKAGES} ]]; then /usr/local/bin/npm install ${NODE_PACKAGES}; fi; if [[ ! -z ${UNNODE_PACKAGES} ]]; then /usr/local/bin/npm uninstall ${UNNODE_PACKAGES}; fi; if [ -f /home/container/package.json ]; then /usr/local/bin/npm install; fi; /usr/local/bin/node /home/container/{{BOT_JS_FILE}}
-          feature_limits:
-            databases: 4
-            backups: 4
-    coins:
-      enabled: true
-      store:
-        enabled: true
-        ram:
-          cost: 100
-          per: 10
-        disk:
-          cost: 100
-          per: 10
-        cpu:
-          cost: 100
-          per: 10
-        servers:
-          cost: 100
-          per: 10
-        databases:
-          cost: 100
-          per: 10
-        ports:
-          cost: 100
-          per: 10
-        backups:
-          cost: 100
-          per: 10
-widget: # If u wana use it u need to invite the Discord Bot (https://add.widgetbot.io/)
-  enabled: false
-  server_id: "GUILD_ID"
-  channel_Id: "CHANNEL_ID"
+function backupFiles() {
+  if (!fs.existsSync(backupFolderPath1, backupFolderPath2)) {
+    fs.mkdirSync(backupFolderPath1)
+    fs.mkdirSync(backupFolderPath2)
+  }
 
-faq:
- date: "12/12/2012"
- payment: 
-  questions: 
-   Q1: "When is payment taken for my order?"
-   Q2: "How do I pay for my order?"
-   Q3: "What should I do if I'm having trouble placing an order?"
-   Q4: "Which license do I need for an end product that is only accessible to paying users?"
-   Q5: "Does my subscription automatically renew?"
-  answers:
-   A1: "Payment is taken during the checkout process when you pay for your order. The order number that appears on the confirmation screen indicates payment has been successfully processed."
-   A2: "We accept Visa®, MasterCard®, American Express®, and PayPal®. Our servers encrypt all information submitted to them, so you can be confident that your credit card information will be kept safe and secure."
-   A3: "For any technical difficulties you are experiencing with our website, please contact us at our support portal, or you can call us toll-free at +49 15132, or email us at order@NorthHost.de"
-   A4: "If you have paying users or you are developing any SaaS products then you need an Extended License. For each products, you need a license. You can get free lifetime updates as well."
-   A5: "No, This is not subscription based item.Pastry pudding cookie toffee bonbon jujubes jujubes powder topping. Jelly beans gummi bears sweet roll bonbon muffin liquorice. Wafer lollipop sesame snaps."
- delivery: 
-  questions: 
-   Q1: "How would you ship my order?"
-   Q2: "What is the delivery cost of my order?"
-   Q3: "What to do if my product arrives damaged?"
-  answers:
-   A1: "For large products, we deliver your product via a third party logistics company offering you the “room of choice” scheduled delivery service. For small products, we offer free parcel delivery."
-   A2: "The cost of scheduled delivery is $69 or $99 per order, depending on the destination postal code. The parcel delivery is free."
-   A3: "We will promptly replace any product that is damaged in transit. Just contact our support team, to notify us of the situation within 48 hours of product arrival."
- cr: 
-  questions: 
-   Q1: "Can I cancel my order?"
-   Q2: "Can I return my product?"
-   Q3: "Where can I view status of return?"
-  answers:
-   A1: "Scheduled delivery orders can be cancelled 72 hours prior to your selected delivery date for full refund. Parcel delivery orders cannot be cancelled, however a free return label can be provided upon request."
-   A2: "You can return your product within 15 days of delivery, by contacting our support team, All merchandise returned must be in the original packaging with all original items."
-   A3: "Locate the item from Your Orders Select Return/Refund status."
- orders: 
-  questions: 
-   Q1: "Has my order been successful?"
-   Q2: "My Promotion Code is not working, what can I do?"
-   Q3: "How do I track my Orders?"
-  answers:
-   A1: "All successful order transactions will receive an order confirmation email once the order has been processed. If you have not received your order confirmation email within 24 hours, check your junk email or spam folder. Alternatively, log in to your account to check your order summary. If you do not have a account, you can contact our Customer Care Team on Support@NorthClient.de."
-   A2: "If you are having issues with a promotion code, please contact us at Support@NorthClient.de for assistance."
-   A3: "If you have an account just sign into your account from here and select“My Servers. If you have a a guest account track your order from here using the server number and the email address."
- ps: 
-  questions: 
-   Q1: "Will I be notified once my order has shipped?"
-   Q2: "Where can I find warranty information?"
-   Q3: "How can I purchase additional warranty coverage?"
-  answers:
-   A1: "Yes, We will send you an email once your order has been shipped. This email will contain tracking and order information."
-   A2: "We are committed to quality products. For information on warranty period and warranty services, visit our Warranty section in Our Discord."
-   A3: "For the peace of your mind, we offer extended warranty plans that add additional year(s) of protection to the standard manufacturer’s warranty provided by us. To purchase or find out more about the extended warranty program, visit Extended Warranty section in our Discord."
+  const date = new Date();
+
+  const backupFileName1 = `backup_${path.basename(filePath1, path.extname(filePath1))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath1)}`;
+  fs.copyFileSync(filePath1, path.join(backupFolderPath1, backupFileName1));
+  console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  console.log(chalk.green(`[NorthClient] File '${filePath1}' backed up to '${backupFolderPath1}/${backupFileName1}'` + " ✅"));
+
+  const backupFileName2 = `backup_${path.basename(filePath2, path.extname(filePath2))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath2)}`;
+  fs.copyFileSync(filePath2, path.join(backupFolderPath2, backupFileName2));
+  console.log(chalk.green(`[NorthClient] File '${filePath2}' backed up to '${backupFolderPath2}/${backupFileName2}'` + " ✅"));
+  console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+}
+backupFiles();
+
+process.on('beforeExit', () => {
+  backupFiles();
+});
+
+var cache = 0;
+
+setInterval(
+  async function() {
+    if (cache - .1 < 0) return cache = 0;
+    cache = cache - .1;
+  }, 100
+)
+
+app.use(async (req, res, next) => {
+  if (req.session.userinfo && req.session.userinfo.id && !(await db.get(`users-${req.session.userinfo.id}`))) {
+    let theme = indexjs.get(req);
+
+    req.session.destroy(() => {
+      return res.redirect(theme.settings.redirect.logout || "/");
+    });
+
+    return;
+  }
+
+  let manager = {
+    "/callback": 2,
+    "/create": 1,
+    "/delete": 1,
+    "/modify": 1,
+    "/updateinfo": 1,
+    "/setplan": 2,
+    "/admin": 1,
+    "/regen": 1,
+    "/renew": 1,
+    "/api/userinfo": 1,
+    "/userinfo": 2,
+    "/remove_account": 1,
+    "/create_coupon": 1,
+    "/revoke_coupon": 1,
+    "/getip": 1,
+    "/gift/coins": 1,
+    "/gift": 2
+  };
+
+  if (manager[req._parsedUrl.pathname]) {
+    if (cache > 0) {
+      setTimeout(async () => {
+        let allqueries = Object.entries(req.query);
+        let querystring = "";
+        for (let query of allqueries) {
+          querystring = querystring + "&" + query[0] + "=" + query[1];
+        }
+        querystring = "?" + querystring.slice(1);
+        if (querystring == "?") querystring = "";
+        res.redirect((req._parsedUrl.pathname.slice(0, 1) == "/" ? req._parsedUrl.pathname : "/" + req._parsedUrl.pathname) + querystring);
+      }, 1000);
+      return;
+    } else {
+      cache = cache + manager[req._parsedUrl.pathname];
+    }
+  };
+  next();
+});
+
+// Load Routes.
+
+const routes = glob.sync('./routes/**/*.js');
+  for (const file of routes) {
+    const routes = require(file);
+    if (typeof routes.load === 'function') routes.load(app, ejs, db);
+}
+
+app.all("*", async (req, res) => {
+  if (req.session.pterodactyl) if (req.session.pterodactyl.id !== await db.get(`users-${req.session.userinfo.id}`)) return res.redirect("/login?prompt=none");
+  let theme = indexjs.get(req);
+  
+  if (theme.settings.mustbeloggedin.includes(req._parsedUrl.pathname)) if (!req.session.userinfo || !req.session.pterodactyl) return res.redirect("/login" + (req._parsedUrl.pathname.slice(0, 1) == "/" ? "?redirect=" + req._parsedUrl.pathname.slice(1) : ""));
+  if (theme.settings.mustbeadmin.includes(req._parsedUrl.pathname)) {
+    ejs.renderFile(
+      `./themes/${theme.name}/${theme.settings.notfound}`, 
+      await eval(indexjs.renderdataeval),
+      null,
+    async function (err, str) {
+      delete req.session.newaccount;
+      delete req.session.password;
+      if (!req.session.userinfo || !req.session.pterodactyl) {
+        if (err) {
+          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(err);
+          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+        };
+        res.status(404);
+        return res.send(str);
+      };
+
+      let cacheaccount = await fetch(
+        `${settings.pterodactyl.domain}/api/application/users/${await db.get(`users-${req.session.userinfo.id}`)}?include=servers`,
+        {
+          method: "get",
+          headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${settings.pterodactyl.key}` }
+        }
+      );
+      if (await cacheaccount.statusText == "Not Found") {
+        if (err) {
+          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(err);
+          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+        };
+        return res.send(str);
+      };
+      let cacheaccountinfo = JSON.parse(await cacheaccount.text());
+    
+      req.session.pterodactyl = cacheaccountinfo.attributes;
+      if (cacheaccountinfo.attributes.root_admin !== true) {
+        if (err) {
+          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(err);
+          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+        };
+        return res.send(str);
+      };
+
+      ejs.renderFile(
+        `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+        await eval(indexjs.renderdataeval),
+        null,
+      function (err, str) {
+        delete req.session.newaccount;
+        delete req.session.password;
+        if (err) {
+          console.log(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`);
+          console.log(err);
+          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+        };
+        res.status(404);
+        res.send(str);
+      });
+    });
+    return;
+  };
+  ejs.renderFile(
+    `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+    await eval(indexjs.renderdataeval),
+    null,
+  function (err, str) {
+    delete req.session.newaccount;
+    delete req.session.password;
+    if (err) {
+      console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+      console.log(err);
+      return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+    };
+    res.status(404);
+    res.send(str);
+  });
+});
+
+let partymode = ({users: 1, status: false});
+if (settings["AFK Party"].enabled == true) {
+  setInterval( async function () { 
+    fetch(`${settings.api.client.oauth2.link}/api/afkparty`).then(res => Promise.resolve(res.json()).then(afkparty => {
+      partymode = (afkparty)
+    }))
+  }, 5000)
+}
+
+module.exports.renderdataeval =
+  `(async () => {
+    const JavaScriptObfuscator = require('javascript-obfuscator');
+    let renderdata = {
+      req: req,
+      settings: settings,
+      userinfo: req.session.userinfo,
+      packagename: req.session.userinfo ? await db.get("package-" + req.session.userinfo.id) ? await db.get("package-" + req.session.userinfo.id) : settings.api.client.packages.default : null,
+      extraresources: !req.session.userinfo ? null : (await db.get("extra-" + req.session.userinfo.id) ? await db.get("extra-" + req.session.userinfo.id) : {
+        ram: 0,
+        disk: 0,
+        cpu: 0,
+        servers: 0,
+        databases: 0,
+        allocations: 0,
+        backups: 0
+      }),
+      j4r: !req.session.userinfo ? null : (await db.get("j4r-" + req.session.userinfo.id) ? await db.get("j4r-" + req.session.userinfo.id) : {
+        ram: 0,
+        disk: 0,
+        cpu: 0,
+        servers: 0,
+        databases: 0,
+        allocations: 0,
+        backups: 0
+      }),
+      packages: req.session.userinfo ? settings.api.client.packages.list[await db.get("package-" + req.session.userinfo.id) ? await db.get("package-" + req.session.userinfo.id) : settings.api.client.packages.default] : null,
+      coins: settings.api.client.coins.enabled == true ? (req.session.userinfo ? (await db.get("coins-" + req.session.userinfo.id) ? await db.get("coins-" + req.session.userinfo.id) : 0) : null) : null,
+      pterodactyl: req.session.pterodactyl,
+      theme: theme.name,
+      extra: theme.settings.variables
+    };
+    return renderdata;
+  })();`;
+
+module.exports.get = function(req) {
+  let defaulttheme = settings.defaulttheme;
+  let tname = encodeURIComponent(getCookie(req, "theme"));
+  let name = (
+    tname ?
+      fs.existsSync(`./themes/${tname}`) ?
+        tname
+      : defaulttheme
+    : defaulttheme
+  )
+  return {
+    settings: (
+      fs.existsSync(`./themes/${name}/pages.yml`) ?
+        yaml.load(fs.readFileSync(`./themes/${name}/pages.yml`).toString())
+      : defaultthemesettings
+    ),
+    name: name
+  };
+};
+
+module.exports.islimited = async function() {
+  return cache <= 0 ? true : false;
+}
+
+module.exports.ratelimits = async function(length) {
+  cache = cache + length
+}
+
+// Get a cookie.
+const getCookie = require("./handlers/getCookie");
