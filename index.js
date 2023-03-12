@@ -71,6 +71,11 @@ app.use(express.json({
   verify: undefined
 }));
 
+
+app.listen(settings.website.port, (err) => {
+  if (err) console.log(chalk.red(err));
+}); 
+
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 console.log(chalk.cyan(figlet.textSync("NorthClient")));
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
