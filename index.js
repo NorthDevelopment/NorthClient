@@ -74,36 +74,60 @@ app.use(express.json({
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 console.log(chalk.cyan(figlet.textSync("NorthClient")));
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-console.log(chalk.cyan("[NorthClient] Copyright 2022-2023 ©️ NorthDevelopment"));
 console.log(chalk.cyan("[Github] https://github.com/NorthDevelopment/NorthClient"));
 console.log(chalk.cyan("[Discord] https://discord.gg/c2V7NKKWCT"));
+console.log(chalk.cyan("[NorthClient] Copyright 2022-2023 ©️ NorthDevelopment"));
+console.log(chalk.cyan("[NorthClient] All Rights Reserved."));
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-app.listen(settings.website.port, (err) => {
-  console.log(chalk.cyan(`[NorthClient] Loaded Dashboard on the port ${settings.website.port}`));
-  console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-  if (err) console.log(chalk.red(err));
+console.log(chalk.cyan(`[NorthClient] Loaded Dashboard on the port ${settings.website.port}`));
+console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+
+// Load the folders.
+
+const folderPaths = ['./routes', './handlers', './themes', './settings.yml'];
+
+folderPaths.forEach(folderPath => {
+  if (fs.existsSync(folderPath)) {
+    console.log(chalk.green(`[NorthClient] '${folderPath}' loaded 	✅`));
+  }
+   else {
+    console.log(chalk.red(`[NorthClient] '${folderPath}' not found 	❌`));
+    console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  }
 });
 
-console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-console.log(chalk.cyan("[NorthClient] loading Modules..."))
-console.log(chalk.yellow("[NorthClient] DB loading	⏳"))
-console.log(chalk.yellow("[NorthClient] Users loading	⏳"))
-console.log(chalk.yellow("[NorthClient] Coins loading	⏳"))
-console.log(chalk.yellow("[NorthClient] Servers loading	⏳"))
-console.log(chalk.yellow("[NorthClient] Website loading	⏳"))
-console.log(chalk.yellow("[NorthClient] API's loading	⏳"))
-console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-console.log(chalk.cyan("[NorthClient] loaded Modules..."))
-console.log(chalk.green("[NorthClient] DB loaded 	✅"))
-console.log(chalk.green("[NorthClient] Users loaded 	✅"))
-console.log(chalk.green("[NorthClient] Coins loaded	✅"))
-console.log(chalk.green("[NorthClient] Servers loaded 	✅"))
-console.log(chalk.green("[NorthClient] Website loaded 	✅"))
-console.log(chalk.green("[NorthClient] API's loaded 	✅"))
-console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-console.log(chalk.cyan("[NorthClient] Modules cannot be loaded..."))
-console.log(chalk.red("[NorthClient] All modules loaded no problems detected ✅"))
-console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+
+
+// Backup files.
+const path = require('path');
+const backupFolderPath = './dbbackup';
+const filePath1 = './db.sqlite';
+const filePath2 = './sessions.db';
+
+function backupFiles() {
+  if (!fs.existsSync(backupFolderPath)) {
+    fs.mkdirSync(backupFolderPath);
+  }
+
+  const date = new Date();
+
+  const backupFileName1 = `backup_${path.basename(filePath1, path.extname(filePath1))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath1)}`;
+  fs.copyFileSync(filePath1, path.join(backupFolderPath, backupFileName1));
+  console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  console.log(chalk.green(`[NorthClient] File '${filePath1}' backed up to '${backupFolderPath}/${backupFileName1}'` + " ✅"));
+
+  const backupFileName2 = `backup_${path.basename(filePath2, path.extname(filePath2))}_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}${path.extname(filePath2)}`;
+  fs.copyFileSync(filePath2, path.join(backupFolderPath, backupFileName2));
+  console.log(chalk.green(`[NorthClient] File '${filePath2}' backed up to '${backupFolderPath}/${backupFileName2}'` + " ✅"));
+  console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+}
+backupFiles();
+
+process.on('beforeExit', () => {
+  backupFiles();
+});
+
+
 
 var cache = 0;
 
