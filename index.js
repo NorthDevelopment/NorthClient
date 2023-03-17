@@ -71,6 +71,41 @@ app.use(express.json({
   verify: undefined
 }));
 
+const http = require('http');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.originalname)
+  }
+});
+
+const upload = multer({ storage: storage });
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/upload' && req.method === 'POST') {
+    upload.single('avatar')(req, res, function(err) {
+      if (err) {
+        console.error(err);
+        res.statusCode = 500;
+        res.end();
+      } else {
+        res.statusCode = 200;
+        res.end();
+      }
+    });
+  } else {
+    res.statusCode = 404;
+    res.end();
+  }
+});
+
+server.listen(5003, () => {
+});
+
 
 app.listen(settings.website.port, (err) => {
   if (err) console.log(chalk.red(err));
@@ -101,7 +136,51 @@ folderPaths.forEach(folderPath => {
   }
 });
 
+// Überprüfen, ob der Ordner bereits vorhanden ist
+if (!fs.existsSync('dbbackup')) {
+  // Funktion zum Erstellen des Ordners und Unterordner
+  function createFolderWithSubfolders() {
+    const folderName = 'dbbackup'; // Hier können Sie den Namen des Ordners ändern
+    const subFolderName1 = 'session'; // Hier können Sie den Namen des ersten Unterordners ändern
+    const subFolderName2 = 'sqlite'; // Hier können Sie den Namen des zweiten Unterordners ändern
 
+    fs.mkdir(folderName, { recursive: true }, (err) => {
+      if (err) throw err;
+      console.log(chalk.green(`[NorthClient] The folder ${folderName} was created successfully!`));
+    });
+
+    fs.mkdir(`${folderName}/${subFolderName1}`, { recursive: true }, (err) => {
+      if (err) throw err;
+      console.log(chalk.green(`[NorthClient] The subfolder ${subFolderName1} was successfully created!`));
+    });
+
+    fs.mkdir(`${folderName}/${subFolderName2}`, { recursive: true }, (err) => {
+      if (err) throw err;
+      console.log(chalk.green(`[NorthClient] The subfolder ${subFolderName2} was successfully created!`));
+    });
+
+  }
+
+  // Aufruf der Funktion zum Erstellen des Ordners und Unterordner
+  createFolderWithSubfolders();
+}
+
+// Überprüfen, ob der Ordner und die Unterordner erfolgreich erstellt wurden
+fs.access('dbbackup', (err) => {
+  if (err) console.log(chalk.red('[NorthClient] The dbbackup folder was not created successfully!'));
+  else console.log(chalk.green('[NorthClient] The dbbackup folder was successfully created!'));
+});
+
+fs.access('dbbackup/session', (err) => {
+  if (err) console.log(chalk.red('[NorthClient] The session folder was not created successfully!'));
+  else console.log(chalk.green('[NorthClient] The session folder was successfully created!'));
+});
+
+fs.access('dbbackup/sqlite', (err) => {
+  if (err) console.log(chalk.red('[NorthClient] The sqlite folder was not created successfully!'));
+  else console.log(chalk.green('[NorthClient] The sqlite folder was successfully created!'));
+       console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+});
 
 // Backup files.
 const path = require('path');
@@ -133,6 +212,7 @@ backupFiles();
 process.on('beforeExit', () => {
   backupFiles();
 });
+
 
 var cache = 0;
 
