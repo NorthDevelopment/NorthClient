@@ -168,7 +168,7 @@ This repository is managed under the MIT license.
 
 © 2023-present NorthDevelopment
 
-This Panel is still under Development by Jonas and David.
+This Panel is still under Development.
 <br/>
 <br/>
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
