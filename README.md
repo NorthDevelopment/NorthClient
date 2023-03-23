@@ -6,7 +6,7 @@
 <a  href="https://github.com/NorthDevelopment/NorthClient/releases"><img src="https://img.shields.io/github/v/release/NorthDevelopment/NorthClient" height="20"/></a>
 <a href="https://github.com/NorthDevelopment/NorthClient/actions"><img src="https://github.com/discordjs/discord.js/actions/workflows/test.yml/badge.svg" alt="Tests status" />
 <a href="https://github.com/NorthDevelopment/NorthClient/actions"><img src="https://img.shields.io/discord/984837635879104602?label=Discord" alt="Tests status" />
-<a  href="https://demo.northdevelopment.ga"><img src="https://img.shields.io/github/v/tag/NorthDevelopment/NorthClient?label=Demo%20Version" height="20"/>
+<a  href="https://demo.northdevelopment.tech"><img src="https://img.shields.io/github/v/tag/NorthDevelopment/NorthClient?label=Demo%20Version" height="20"/>
 <a  href="https://github.com/NorthDevelopment/NorthClient/stargazers"><img src="https://img.shields.io/github/stars/NorthDevelopment/NorthClient?label=%E2%AD%90" height="20"/></a>
 
 
@@ -118,7 +118,7 @@ $ sudo pm2 restart all      #restart all apps
 <br/><br/><br/>
 
 ## :clap:  Demo
-Check out our [demo](https://demo.northdevelopment.ga)<br/>
+Check out our [demo](https://demo.northdevelopment.tech)<br/>
 Login:<br/>
 > Name: demo<br/>
 > E-Mail: demo@northdevelopment.de<br/>
