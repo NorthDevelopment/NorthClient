@@ -40,21 +40,10 @@
 - Dark-mode/White-mode
 <br/><br/><br/>
 
-## :zap:  Fast implementation  
-  Use pm2:<br/>
-  ```JavaScript
-//Step 01:
-Install pm2. (If you don't know how then look below.)
-
-//Step 02:
-Drop the files into your server and edit settings.yml.
-//Step 03:
-move to >>$ cd /yourlocation<< 
-//Step 04: 
-start the Index.js with >>$ pm2 start index.js.<< 
-```
+## :zap:  Installation Guide
+  NorthClient has its own installation guide that you can [follow](https://docs.northdevelopment.tech) to install it.
 ___
-Or, use Pterodactyl's Panel:
+Pterodactyl's Panel:
 ```JavaScript
 //Step 01:
 Install The egg discord.js generic and create a server with this egg
@@ -65,50 +54,6 @@ Drop the Files in your Server and Edit the settings.yml
 //Note: If you need Help, feel free to join the Discord or Report the Issue on GitHub.
 ``` 
   
-<br/><br/><br/>
-## :tada:  How to install pm2:
-
-**Step 01:**
-<BR/>This is for (Debian/Ubuntu)
-  ```JavaScript
----------- Install Node.js v18.x ---------- 
-$ curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-
----------- Install Node.js v12.x ----------
-$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-  ```
-___
-This is for (CentOS/RHEL and Fedora)
-  ```JavaScript
----------- Install Node.js v18.x ---------- 
-$ curl -sL https://rpm.nodesource.com/setup_18.x | bash -
-
----------- Install Node.js v12.x ----------
-$ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-  ```
-
-  ```JavaScript
-  //Step 02:
----------- Install PM2 ---------- 
-$ sudo npm i -g pm2
-  ```
-
-  ```JavaScript
-&#8674; Example Start pm2
-$ sudo pm2 start /var/www/html/app/server.js -i 4 
-$ sudo pm2 save  (#save current process list on reboot)
-
-//Node\\
-Hot to Update:
-$ sudo pm2 update	      #update PM2 package
-
-More Commands: 
-$ sudo pm2 logs 1	        #view logs for app 1
-$ sudo pm2 stop 0           #stop process with ID 0
-$ sudo pm2 restart all      #restart all apps
-  ```
 <br/><br/><br/>
 ## :eyes:  Preview
 ![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200239844868096/Screenshot_2023-02-03_234319.png?width=1351&height=670)
