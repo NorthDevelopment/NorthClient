@@ -48,7 +48,7 @@ changelog:
 
 linkvertise: ##go to https://publisher.linkvertise.com/ to get ur userid
   enabled: true
-  userid: 00000
+  userid: 10000
   coins: 25
 
 status:
@@ -57,7 +57,7 @@ status:
 
 stripe:
   enabled: true  
-  key: 0000000000 # Replace this with your Stripe API Key
+  key: 1000000000 # Replace this with your Stripe API Key
   coins: 200 # Coins per amount in USD
   amount: 1
 
