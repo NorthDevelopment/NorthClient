@@ -160,7 +160,7 @@ api:
     locations:
       '1':
         name: Node01
-        package: Node01
+        package: null
 
     eggs:
       paper:
