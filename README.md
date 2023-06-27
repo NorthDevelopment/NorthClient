@@ -20,6 +20,7 @@
 ## :star: What Features ?
 <a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"> NorthClient's</a> features include:
 <br/>
+- [Custom Egg](https://github.com/NorthDevelopment/NorthClient-Egg) installation support for pterodactyl.
 - Resource Management (gift, use it to create servers, edit servers)
 - Coins (Join for Rewards, Buy Coins)
 - Coupons (Gives resources & coins to a user)
@@ -66,8 +67,8 @@ Drop the Files in your Server and Edit the settings.yml
 Check out our [demo](https://demo.northdevelopment.tech)<br/>
 Login:<br/>
 > Name: demo<br/>
-> E-Mail: demo@northdevelopment.de<br/>
-> Password: demo
+> E-Mail: demo@northdevelopment.tech<br/>
+> Password: demo1234
 <br/>
 
 ## Check out our [Discord Support](https://discord.gg/fUvK2jed34)<br/>
