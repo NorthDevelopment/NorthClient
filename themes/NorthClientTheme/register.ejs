@@ -132,6 +132,7 @@
           <button class="btn btn-primary d-grid w-100" onclick="submitForm()">Sign up</button>
           <script>
                           async function submitForm() {
+                              event.preventDefault();
                               let first_name = encodeURIComponent(document.getElementById("first_name").value);
                               let last_name = encodeURIComponent(document.getElementById("last_name").value);
                               let username = encodeURIComponent(document.getElementById("username").value);
