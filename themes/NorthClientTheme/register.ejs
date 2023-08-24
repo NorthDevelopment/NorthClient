@@ -98,24 +98,24 @@
         <form id="formAuthentication" class="mb-3" method="POST">
           <div class="mb-3">
             <label for="first_name" class="form-label">Firstname</label>
-            <input class="form-control" name="first_name" type="email" id="first_name" required="required" placeholder="Enter your Firstname"/>
+            <input class="form-control" required name="first_name" type="email" id="first_name" required="required" placeholder="Enter your Firstname"/>
           </div>
           <div class="mb-3">
             <label for="last_name" class="form-label">Lastname</label>
-            <input class="form-control" name="last_name" type="email" id="last_name" required="required" placeholder="Enter your Lastname"/>
+            <input class="form-control" required name="last_name" type="email" id="last_name" required="required" placeholder="Enter your Lastname"/>
           </div>
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input class="form-control" name="username" type="email" id="username" required="required" placeholder="Enter your username"/>
+            <input class="form-control" required name="username" type="email" id="username" required="required" placeholder="Enter your username"/>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-                      <input class="form-control" name="email" type="email" id="email" required="required" placeholder="Enter your email"/>
+                      <input class="form-control" required name="email" type="email" id="email" required="required" placeholder="Enter your email"/>
           </div>
           <div class="mb-3 form-password-toggle">
             <label class="form-label" for="password">Password</label>
             <div class="input-group input-group-merge">
-              <input class="form-control" name="password" type="password" id="password" required="required" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
+              <input class="form-control" required name="password" type="password" id="password" required="required" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
               <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
             </div>
           </div>
@@ -132,6 +132,7 @@
           <button class="btn btn-primary d-grid w-100" onclick="submitForm()">Sign up</button>
           <script>
                           async function submitForm() {
+                              event.preventDefault();
                               let first_name = encodeURIComponent(document.getElementById("first_name").value);
                               let last_name = encodeURIComponent(document.getElementById("last_name").value);
                               let username = encodeURIComponent(document.getElementById("username").value);
