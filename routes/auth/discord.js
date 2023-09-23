@@ -293,7 +293,7 @@ module.exports.load = async function (app, ejs, db) {
 
         req.session.userinfo = userinfo;
         if (customredirect) return res.redirect(customredirect);
-        return res.redirect("/dashboard");
+        return res.redirect("/");
       };
       res.send("Error: 201 - Please contact the administrator of this website.");
     } else {
