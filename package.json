@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "NorthDevelopment",
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^1.6.0",
     "better-sqlite3": "^7.5.3",
     "better-sqlite3-session-store": "^0.0.3",
     "chalk": "^4.1.0",
