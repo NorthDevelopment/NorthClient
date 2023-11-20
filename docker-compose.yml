@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  north_client:
+    build:
+      context: .
+      target: app_node
+      network: host
+    restart: unless-stopped
+    volumes:
+      - ./settings.yml:/app/settings.yml
+      #- ./db.sqlite:/app/db.sqlite
+      #- ./dbbackup:/app/dbbackup
+      #- ./sessions.db:/app/sessions.db
+    ports:
+      - "80:9000"
+
+
+
+#  northclient-north_client-1  | [NorthClient] The folder dbbackup was created successfully!
+#  northclient-north_client-1  | [NorthClient] The subfolder session was successfully created!
+#  northclient-north_client-1  | [NorthClient] The dbbackup folder was successfully created!
+#  northclient-north_client-1  | [NorthClient] The session folder was successfully created!
+#  northclient-north_client-1  | [NorthClient] The sqlite folder was not created successfully!
+#  northclient-north_client-1  | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  northclient-north_client-1  | [NorthClient] The subfolder sqlite was successfully created!
