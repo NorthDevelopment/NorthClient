@@ -1,6 +1,10 @@
 "use strict";
 
-const db = require('better-sqlite3')('./db.sqlite');
+//TODO: maybe find a better way than this
+const deployedInDocker = !!process.env.DEPLOYED_IN_DOCKER
+
+const db = require('better-sqlite3')((deployedInDocker ? './data/' : './') + 'db.sqlite');
+console.log(deployedInDocker);
 
 db.prepare(`CREATE TABLE IF NOT EXISTS "keyv" ("key" VARCHAR(255) PRIMARY KEY, "value" TEXT)`).run();
 

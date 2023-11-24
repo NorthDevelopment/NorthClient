@@ -1,7 +1,6 @@
 "use strict";
 
 // Load packages.
-
 const fs = require("fs");
 const fetch = require('node-fetch');
 const chalk = require("chalk");
@@ -10,7 +9,6 @@ const yaml = require('js-yaml');
 const glob = require('glob');
 
 // Load settings.
-
 const settings = require('./handlers/readSettings').settings();
 
 const defaultthemesettings = {
@@ -23,38 +21,36 @@ const defaultthemesettings = {
   variables: {}
 };
 
-// Load database
+//TODO: maybe find a better way than this
+const deployedInDocker = !!process.env.DEPLOYED_IN_DOCKER
 
+// Load database
 const db = require('./handlers/database');
 module.exports.db = db;
 
 // Load websites.
-
 const express = require("express");
 const app = express();
 module.exports.app = app
 
 // Load express addons.
-
 const ejs = require("ejs");
 const session = require("express-session");
 require('express-ws')(app);
 const indexjs = require("./index.js");
 
 // Sets up saving session data.
-
 const sqlite = require("better-sqlite3");
 const SqliteStore = require("better-sqlite3-session-store")(session);
-const session_db = new sqlite("sessions.db");
+const session_db = new sqlite((deployedInDocker ? './data/' : './') + "sessions.db");
 
 // Load the website.
-
 app.use(session({
   secret: settings.website.secret,
   resave: true,
   saveUninitialized: true,
   store: new SqliteStore({
-    client: session_db, 
+    client: session_db,
     expired: {
       clear: true,
       intervalMs: 900000
@@ -109,7 +105,7 @@ server.listen(5003, () => {
 
 app.listen(settings.website.port, (err) => {
   if (err) console.log(chalk.red(err));
-}); 
+});
 
 console.log(chalk.blue("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 console.log(chalk.cyan(figlet.textSync("NorthClient")));
@@ -140,9 +136,17 @@ folderPaths.forEach(folderPath => {
 if (!fs.existsSync('dbbackup')) {
   // Funktion zum Erstellen des Ordners und Unterordner
   function createFolderWithSubfolders() {
+    const mainFolder = 'data';
     const folderName = 'dbbackup'; // Hier können Sie den Namen des Ordners ändern
     const subFolderName1 = 'session'; // Hier können Sie den Namen des ersten Unterordners ändern
     const subFolderName2 = 'sqlite'; // Hier können Sie den Namen des zweiten Unterordners ändern
+
+    if (deployedInDocker) {
+      fs.mkdir(`${mainFolder}`, { recursive: true }, (err) => {
+        if (err) throw err;
+        console.log(chalk.green(`[NorthClient] The folder ${mainFolder} was created successfully!`));
+      });
+    }
 
     fs.mkdir(folderName, { recursive: true }, (err) => {
       if (err) throw err;
@@ -166,6 +170,13 @@ if (!fs.existsSync('dbbackup')) {
 }
 
 // Überprüfen, ob der Ordner und die Unterordner erfolgreich erstellt wurden
+if (deployedInDocker) {
+  fs.access('./data', (err) => {
+    if (err) console.log(chalk.red('[NorthClient] The data folder was not created successfully!'));
+    else console.log(chalk.green('[NorthClient] The data folder was successfully created!'));
+  });
+}
+
 fs.access('dbbackup', (err) => {
   if (err) console.log(chalk.red('[NorthClient] The dbbackup folder was not created successfully!'));
   else console.log(chalk.green('[NorthClient] The dbbackup folder was successfully created!'));
@@ -186,8 +197,8 @@ fs.access('dbbackup/sqlite', (err) => {
 const path = require('path');
 const backupFolderPath1 = './dbbackup/sqlite';
 const backupFolderPath2 = './dbbackup/session';
-const filePath1 = './db.sqlite';
-const filePath2 = './sessions.db';
+const filePath1 = (deployedInDocker ? './data/' : './') + 'db.sqlite';
+const filePath2 = (deployedInDocker ? './data/' : './') + 'sessions.db';
 
 function backupFiles() {
   if (!fs.existsSync(backupFolderPath1, backupFolderPath2)) {
@@ -285,11 +296,11 @@ const routes = glob.sync('./routes/**/*.js');
 app.all("*", async (req, res) => {
   if (req.session.pterodactyl) if (req.session.pterodactyl.id !== await db.get(`users-${req.session.userinfo.id}`)) return res.redirect("/login?prompt=none");
   let theme = indexjs.get(req);
-  
+
   if (theme.settings.mustbeloggedin.includes(req._parsedUrl.pathname)) if (!req.session.userinfo || !req.session.pterodactyl) return res.redirect("/login" + (req._parsedUrl.pathname.slice(0, 1) == "/" ? "?redirect=" + req._parsedUrl.pathname.slice(1) : ""));
   if (theme.settings.mustbeadmin.includes(req._parsedUrl.pathname)) {
     ejs.renderFile(
-      `./themes/${theme.name}/${theme.settings.notfound}`, 
+      `./themes/${theme.name}/${theme.settings.notfound}`,
       await eval(indexjs.renderdataeval),
       null,
     async function (err, str) {
@@ -321,7 +332,7 @@ app.all("*", async (req, res) => {
         return res.send(str);
       };
       let cacheaccountinfo = JSON.parse(await cacheaccount.text());
-    
+
       req.session.pterodactyl = cacheaccountinfo.attributes;
       if (cacheaccountinfo.attributes.root_admin !== true) {
         if (err) {
@@ -333,7 +344,7 @@ app.all("*", async (req, res) => {
       };
 
       ejs.renderFile(
-        `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+        `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`,
         await eval(indexjs.renderdataeval),
         null,
       function (err, str) {
@@ -351,7 +362,7 @@ app.all("*", async (req, res) => {
     return;
   };
   ejs.renderFile(
-    `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+    `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`,
     await eval(indexjs.renderdataeval),
     null,
   function (err, str) {
@@ -369,7 +380,7 @@ app.all("*", async (req, res) => {
 
 let partymode = ({users: 1, status: false});
 if (settings["AFK Party"].enabled == true) {
-  setInterval( async function () { 
+  setInterval( async function () {
     fetch(`${settings.api.client.oauth2.link}/api/afkparty`).then(res => Promise.resolve(res.json()).then(afkparty => {
       partymode = (afkparty)
     }))
