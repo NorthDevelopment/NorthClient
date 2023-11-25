@@ -14,12 +14,10 @@
 <p align="center"><a href="https://github.com/NorthDevelopment/NorthClient"></a><a href="#nastyox"><img src="http://randojs.com/images/dropShadow.png" width="75%"/></a></p><br/>
 
 ## :hear_no_evil:  What is NorthClient?
-
-<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> is a Pterodactyl client area,
-making it more comfortable for users to manage their servers<br/><br/><br/>
+<a href="https://github.com/NorthDevelopment/NorthClient" target="_blank">NorthClient</a> is a Pterodactyl client area, making it more comfortable for users to manage their servers
+<br/><br/><br/>
 
 ## :star: What Features ?
-
 <a href="https://github.com/NorthDevelopment/NorthClient" target="_blank"> NorthClient's</a> features include:
 <br/>
 - [Custom Egg](https://github.com/NorthDevelopment/NorthClient-Egg) installation support for pterodactyl.
@@ -44,11 +42,9 @@ making it more comfortable for users to manage their servers<br/><br/><br/>
 <br/><br/><br/>
 
 ## :zap:  Installation Guide
-
 NorthClient has its own installation guide that you can [follow](https://docs.northdevelopment.tech) to install it.
 ___
 Pterodactyl's Panel:
-
 ```
 //Step 01:
 Install The egg discord.js generic and create a server with this egg
@@ -73,9 +69,7 @@ Docker:
 6. Run `docker compose up -d` to run the Docker containers in detached daemon mode
 
 <br/><br/><br/>
-
 ## :eyes:  Preview
-
 ![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200239844868096/Screenshot_2023-02-03_234319.png?width=1351&height=670)
 ![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200240771809410/Screenshot_2023-02-03_234341.png?width=1361&height=670)
 ![unknown](https://media.discordapp.net/attachments/984837636457918466/1071200240096510022/Screenshot_2023-02-03_234546.png?width=1351&height=670)
@@ -83,7 +77,6 @@ Docker:
 <br/><br/><br/>
 
 ## :clap:  Demo
-
 Check out our [demo](https://demo.northdevelopment.tech)<br/>
 Login:<br/>
 > Name: demo<br/>
@@ -92,7 +85,6 @@ Login:<br/>
 <br/>
 
 ## Check out our [Discord Support](https://discord.gg/fUvK2jed34)<br/>
-
 <br/>
 <!---
 ## 🎖️  NorthDevelopment Team
@@ -128,8 +120,7 @@ Login:<br/>
 -->
 <br/>
 
-## 🎖️ NorthDevelopment Team
-
+## 🎖️  NorthDevelopment Team
 <kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/71934318?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/96826840?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
