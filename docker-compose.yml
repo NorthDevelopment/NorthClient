@@ -10,7 +10,5 @@ services:
     volumes:
       - ./data:/app/data
       - ./dbbackup:/app/dbbackup
-    environment:
-      - DEPLOYED_IN_DOCKER=true
     ports:
       - "80:9000"

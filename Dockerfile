@@ -8,4 +8,6 @@ RUN npm install
 
 COPY . .
 
+ENV DEPLOYED_IN_DOCKER=true
+
 CMD ["node", "index.js"]

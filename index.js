@@ -21,7 +21,6 @@ const defaultthemesettings = {
   variables: {}
 };
 
-//TODO: maybe find a better way than this
 const deployedInDocker = !!process.env.DEPLOYED_IN_DOCKER
 
 // Load database
