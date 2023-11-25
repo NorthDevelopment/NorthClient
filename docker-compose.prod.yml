@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   north_client:
-    image: ghcr.io/jameskitt616/north_client:latest
+    image: ghcr.io/northdevelopment/northclient:latest
     restart: unless-stopped
     volumes:
       - ./data:/app/data
