@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+  north_client:
+    image: ghcr.io/jameskitt616/north_client:latest
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./dbbackup:/app/dbbackup
+      - ./settings.yml:/app/settings.yml
+    ports:
+      - "80:9000"
