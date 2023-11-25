@@ -45,7 +45,7 @@
   NorthClient has its own installation guide that you can [follow](https://docs.northdevelopment.tech) to install it.
 ___
 Pterodactyl's Panel:
-```JavaScript
+```
 //Step 01:
 Install The egg discord.js generic and create a server with this egg
 
@@ -54,6 +54,17 @@ Drop the Files in your Server and Edit the settings.yml
 
 //Note: If you need Help, feel free to join the Discord or Report the Issue on GitHub.
 ``` 
+---
+Docker:
+1. If not already done, [install Docker and Docker Compose (v2.10+)](https://docs.docker.com/engine/install/)
+2. Copy and configure the config
+      file `curl -L -o settings.yml https://raw.githubusercontent.com/NorthDevelopment/NorthClient/main/settings.yml`
+3. Copy and configure your docker compose
+   file `curl -L -o docker-compose.yml https://raw.githubusercontent.com/NorthDevelopment/NorthClient/main/docker-compose.prod.yml`
+4. Run `docker compose up` (the logs will be displayed in the current shell)
+5. Open `http://localhost:<port>` or `http://<ip-of-your-server>:<port>` in your web browser (make sure to properly configure
+   the firewall of your server)
+6. Run `docker compose up -d` to run the Docker containers in detached daemon mode
   
 <br/><br/><br/>
 ## :eyes:  Preview

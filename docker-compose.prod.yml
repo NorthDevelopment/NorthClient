@@ -2,10 +2,7 @@ version: "3.4"
 
 services:
   north_client:
-    build:
-      context: .
-      target: north_client
-      network: host
+    image: ghcr.io/jameskitt616/north_client:latest
     restart: unless-stopped
     volumes:
       - ./data:/app/data
