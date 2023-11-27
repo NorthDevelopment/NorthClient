@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+  north_client:
+    build:
+      context: .
+      target: north_client
+      network: host
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./dbbackup:/app/dbbackup
+      - ./settings.yml:/app/settings.yml
+    ports:
+      - "80:9000"
