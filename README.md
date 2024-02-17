@@ -80,7 +80,7 @@ Docker:
 Check out our [demo](https://demo.northdevelopment.tech)<br/>
 Login:<br/>
 > Name: demo<br/>
-> E-Mail: demo@northdevelopment.tech<br/>
+> E-Mail: Comming soon...<br/>
 > Password: demo1234
 <br/>
 
@@ -123,7 +123,6 @@ Login:<br/>
 ## 🎖️  NorthDevelopment Team
 <kbd><img src="https://avatars.githubusercontent.com/u/41525308?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <kbd><img src="https://avatars.githubusercontent.com/u/71934318?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
-<kbd><img src="https://avatars.githubusercontent.com/u/96826840?v=4" href="https://github.com/SirHaxe" height="64" width="64" alt="SirHaxe PNG not Loaded" border="1px" align="center"></kbd>
 <br/><br/><br/>
 
 ## MIT license.
