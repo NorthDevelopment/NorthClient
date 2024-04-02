@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 
 module.exports.load = async function(app, ejs, db) {
     app.get("/auth/login", async (req, res) => {
+      if (!settings.api.client.passwordgenerator.signup == true) return res.send("Email auth is disabled!")
       if (!req.query.email || !req.query.password) return res.send("<br>Missing information.<br>")
         const user = await db.get(`user-${req.query.email}`);
         if (!user) return res.send({error: "Invalid Email or Password."});
@@ -26,6 +27,7 @@ module.exports.load = async function(app, ejs, db) {
     });
 
     app.get("/auth/register", async (req, res) => {
+      if (!settings.api.client.passwordgenerator.signup == true) return res.send("Email auth is disabled!")
       if (!req.query.email || !req.query.username || !req.query.password) return res.send("<br> Missing information </br>")
         if (await db.get(`user-${req.query.email}`)) return res.send("Already registered.");
         const userinfo = {
