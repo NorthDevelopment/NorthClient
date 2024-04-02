@@ -1,6 +1,6 @@
 const settings = require('../handlers/readSettings').settings();
 
-if (settings.api.client.allow.gift == true) {
+if (settings.gift.enabled == true) {
 module.exports.load = async function(app, ejs, db) {
     app.get("/gift/coins", async (req, res) => {
         if (!req.session.pterodactyl) return res.redirect("/login?redirect=gift");
