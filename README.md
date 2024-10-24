@@ -80,7 +80,7 @@ Docker:
 Check out our [demo](https://demo.northdevelopment.tech)<br/>
 Login:<br/>
 > Name: demo<br/>
-> E-Mail: Comming soon...<br/>
+> E-Mail: Coming soon...<br/>
 > Password: demo1234
 <br/>
 
